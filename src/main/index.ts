@@ -16,12 +16,13 @@ function createWindow() {
     // transparent: true,
     // frame: false,
     // resizable: false,
-    alwaysOnTop: true
+    // alwaysOnTop: true
   });
+  win.maximize();
   // console.log(`file://${path.join(__dirname, "../index.html")}`);
   win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   win.on('closed', () => {win = null});
-  win.webContents.isDevToolsOpened();
+  // win.webContents.isDevToolsOpened();
 }
 
 app.on('ready', createWindow);
