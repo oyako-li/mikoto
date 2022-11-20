@@ -14,7 +14,7 @@ function createWindow() {
     width: 800, 
     height: 600,
     // transparent: true,
-    frame: false,
+    // frame: false,
     // resizable: false,
     alwaysOnTop: true
   });
