@@ -1,8 +1,8 @@
 if [ "$(ls .gstr)" == "" ]; then
     echo 'not finded .gstr env!';
     python3 -m venv .gstr;
-    chmod +x ./.gstr/bin/activate;
-    source ./.gstr/bin/activate;
+    chmod 700 ./.gstr/bin/activate;
+    ./.gstr/bin/activate;
     pip3 install -r requirements.txt;
     deactivate;
 else echo 'already exist .gstr';
@@ -14,5 +14,5 @@ if [ "$(ls node_modules)" == "" ]; then
 fi
 
 npm ci;
-chmod +x automata.sh;
+chmod 700 automata.sh;
 source ./automata.sh;
