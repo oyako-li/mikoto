@@ -30,8 +30,8 @@ async function load() {
     }, {
       autoBlink: true,
       x: 0,
-      y: 1,
-      scale: 1
+      y: 1.5,
+      scale: 2
     })
     let point = new FacePoint()
     const _handleOnMouseMove = (e: MouseEvent) => {
