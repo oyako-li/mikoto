@@ -13,9 +13,9 @@ function createWindow() {
   win = new BrowserWindow({ 
     width: 800, 
     height: 600,
-    transparent: true,
+    // transparent: true,
     frame: false,
-    resizable: false,
+    // resizable: false,
     alwaysOnTop: true
   });
   // console.log(`file://${path.join(__dirname, "../index.html")}`);
