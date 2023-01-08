@@ -15,4 +15,4 @@ fi
 
 npm ci;
 chmod 700 automata.sh;
-source ./automata.sh;
+source ./startup.sh;
