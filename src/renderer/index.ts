@@ -5,11 +5,11 @@ import { getAngle, getDistance } from '../util/MathUtil';
 const canvas = document.getElementById('canvas') as HTMLCanvasElement;
 
 const MODEL_FILES = {
-  moc3: './model/clearker/clearker4.moc3',
-  model3: './model/clearker/clearker4.model3.json',
-  physics3: './model/clearker/clearker4.physics3.json',
+  moc3: './model/Clearker2/Clearker6.3.moc3',
+  model3: './model/Clearker2/Clearker6.3.model3.json',
+  physics3: './model/Clearker2/Clearker6.3.physics3.json',
   textures: [
-    './model/clearker/clearker4.4096/texture_00.png'
+    './model/Clearker2/Clearker6.3.2048/texture_00.png'
   ]
 };
 
