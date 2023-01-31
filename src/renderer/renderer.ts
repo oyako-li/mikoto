@@ -10,8 +10,10 @@ import { FacePoint } from '../lib/FacePoint'
 
 export interface AvatarArrayBuffers {
   moc3: ArrayBuffer
-  textures: Blob[]
   physics: ArrayBuffer
+  motions?: ArrayBuffer[]
+  sounds: Blob[]
+  textures: Blob[]
 }
 interface Live2dRendererOption {
   autoBlink: boolean
@@ -54,8 +56,10 @@ export async function live2dRender(canvas: HTMLCanvasElement, _model: ArrayBuffe
 
   const {
     moc3: moc3ArrayBuffer,
-    textures,
-    physics: physics3ArrayBuffer
+    physics: physics3ArrayBuffer,
+    motions,
+    sounds,
+    textures
   } = buffers
   /**
    * Live2Dモデルの作成と設定
@@ -67,13 +71,21 @@ export async function live2dRender(canvas: HTMLCanvasElement, _model: ArrayBuffe
   // レンダラの作成（bindTextureより先にやっておく）
   model.createRenderer()
   // テクスチャをレンダラに設定
-  let i = 0
+  let i = 0;
+  console.log(buffers);
   for (let buffer of textures) {
     const texture = await createTexture(buffer, gl)
     model.getRenderer()
       .bindTexture(i, texture)
     i++
   }
+  // モーションの設定
+  i = 0;
+  for (let buffer of motions) {
+    // const texture = await (buffer, gl)
+    model.addMotion(buffer, `motion.${i++}`);
+  }
+
   // そのほかレンダラの設定
   model.getRenderer().setIsPremultipliedAlpha(true)
   model.getRenderer().startUp(gl)
@@ -169,20 +181,12 @@ export async function live2dRender(canvas: HTMLCanvasElement, _model: ArrayBuffe
     // 頂点の更新
     model.update(deltaTimeSecond)
 
-    if (model.isMotionFinished) {
-    
-      const idx = Math.floor(Math.random() * model.motionNames.length);
-      const name = model.motionNames[idx];
-      model.startMotionByName(name);
-    }
-
     viewport[2] = canvas.width
     viewport[3] = canvas.height
     model.getRenderer().setRenderState(frameBuffer, viewport)
 
     // モデルの描画
     model.getRenderer().drawModel()
-
     lastUpdateTime = time
     requestAnimationFrame(loop)
   }
@@ -192,11 +196,22 @@ export async function live2dRender(canvas: HTMLCanvasElement, _model: ArrayBuffe
   }
   loop()
 
+  const clickedHandler = () => {
+    if (model.isMotionFinished) {
+      const idx = Math.floor(Math.random() * model.motionNames.length);
+      console.log(idx);
+      const name = model.motionNames[idx];
+      model.startMotionByName(name);
+      replayBlob(sounds[idx]);
+    }
+  }
+
 
   return {
     updatePoint(newPoint: Partial<FacePoint>) {
       Object.assign(point, newPoint)
-    }
+    },
+    clickedHandler
   }
 }
 
@@ -238,4 +253,10 @@ async function createTexture(blob: Blob, gl: WebGLRenderingContext): Promise<Web
 
   })
 
+}
+
+function replayBlob( blob:Blob ) {
+  var blobURL = window.URL.createObjectURL(blob);
+  var audio0 = new Audio(blobURL);
+  audio0.play();
 }

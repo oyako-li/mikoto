@@ -10,6 +10,14 @@ const MODEL_FILES = {
   physics3: './model/Clearker2/Clearker6.3.physics3.json',
   textures: [
     './model/Clearker2/Clearker6.3.2048/texture_00.png'
+  ],
+  motions: [
+    './model/Clearker2/action1.1.motion3.json',
+    './model/Clearker2/action2.1.motion3.json'
+  ],
+  sounds: [
+    './model/Clearker2/action1.wav',
+    './model/Clearker2/action2.wav'
   ]
 };
 
@@ -22,17 +30,29 @@ async function load() {
       ...MODEL_FILES.textures.map(texture => {
         return axios.get(texture, { responseType: 'blob' }).then(res => res.data)
       })
-    ])
-    const { updatePoint } = await live2dRender(canvas, model, {
+    ]);
+    const motions = await Promise.all([
+      ...MODEL_FILES.motions.map( motion => {
+        return axios.get(motion, { responseType: 'arraybuffer' }).then(res => res.data)
+      })
+    ]);
+    const sounds = await Promise.all([
+      ...MODEL_FILES.sounds.map( sound => {
+        return axios.get(sound, { responseType: 'blob' }).then(res => res.data)
+      })
+    ]);
+    const { updatePoint, clickedHandler } = await live2dRender(canvas, model, {
       moc3,
       physics,
-      textures,
+      motions,
+      sounds,
+      textures
     }, {
       autoBlink: true,
       x: 0,
       y: 1.5,
       scale: 2
-    })
+    });
     let point = new FacePoint()
     const _handleOnMouseMove = (e: MouseEvent) => {
       const x = e.clientX
@@ -54,7 +74,11 @@ async function load() {
       })
       updatePoint(point)
     }
+    const _handleOnMouseClick = (e: MouseEvent) => {
+      clickedHandler();
+    }
     document.body.addEventListener('mousemove', _handleOnMouseMove, false)
+    document.body.addEventListener('click', _handleOnMouseClick, false)
   } catch(error: any) {
     alert(error);
     console.error(error);
