@@ -16,8 +16,8 @@ const MODEL_FILES = {
     './model/Clearker2/action2.1.motion3.json'
   ],
   sounds: [
-    './model/Clearker2/action1.wav',
-    './model/Clearker2/action2.wav'
+    './model/Clearker2/action1.1.wav',
+    './model/Clearker2/action2.1.wav'
   ]
 };
 
