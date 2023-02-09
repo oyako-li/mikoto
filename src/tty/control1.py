@@ -50,7 +50,7 @@ def stroke():
         else:
             SER.write(f'G00 Y220 F8000.0;\r\n'.encode())
 
-        time.sleep(3)
+        time.sleep(5)
 
 def press(key):
     global FLAG

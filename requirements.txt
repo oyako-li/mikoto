@@ -1,4 +1,5 @@
 evdev==1.6.0
+numpy==1.19.5
 pynput==1.7.6
 pyserial==3.5
 python-xlib==0.31
