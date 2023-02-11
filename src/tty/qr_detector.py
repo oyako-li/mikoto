@@ -6,26 +6,24 @@ import sys
 
 def main(args):
     SER = serial.Serial(args[1], args[2])
-    SER.write("G91\r\nM203 X200 Y200 Z300 E10000\r\n".encode())
+    SER.write("G90\r\n".encode())
     qcd = cv2.QRCodeDetector()
     cap = cv2.VideoCapture(0)
 
     def read_seliar():
-        SER.write(f'M114\r\n'.encode())
-        bytesToRead = SER.inWaiting()
-        position = SER.read(bytesToRead).decode("utf-8")
-        try:
-            if float(position.split(' ')[1].split(':')[1])>=220.00:
-                print('position:220')
-                return 220
-            elif float(position.split(' ')[1].split(':')[1])==0.00:
-                print('position:0')
-                return 0
-        except Exception: return False
+        while True:
+            try:
+                SER.write(f'M114\r\n'.encode())
+                bytesToRead = SER.inWaiting()
+                position = SER.read(bytesToRead).decode("utf-8")
+                position = float(position.split(' ')[1].split('Y:')[1])
+                return position
+            except Exception: pass
 
-    print('moveto220:',SER.write(f'G00 Y220 F8000.0\r\n'.encode()) if read_seliar()!=220 else "")
-
+    position = read_seliar()
+    print("first move"+str(SER.write(f'G00 Y220 F8000.0;\r\n'.encode())) if position<220 else f'first posision:{position}')
     count = 0
+    pre_time = time.time()
     while True:
         try:
             while cap.isOpened():
@@ -39,18 +37,21 @@ def main(args):
                         print('detected')
                         frame = cv2.polylines(frame, points.astype(int), True, (0, 255, 0), 3)
                         if read_seliar()==220:
-                            print('remove220to0:', SER.write(f'G00 Y-220 F8000.0\r\nG00 Y220 F8000.0\r\n'.encode()), f' count:{count}')
+                            now = time.time()
+                            print('remove220to0:', SER.write(f'G00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n'.encode()), f' count:{count} time:{now-pre_time}')
                             count+=1
+                            pre_time=now
                             time.sleep(2)
 
 
-                cv2.imshow('data/dst/qrcode_opencv.jpg', frame)
+                cv2.imshow('qrcode_opencv', frame)
                 if cv2.waitKey(1) & 0xFF == ord('q'): 
-                    cv2.destroyallWindows()
+                    cv2.destroyAllWindows()
                     SER.close()
-                    sys.exit()
+                    return 0
         except:
             time.sleep(2)
+            cv2.destroyAllWindows()
             cap = cv2.VideoCapture(0)
 
 

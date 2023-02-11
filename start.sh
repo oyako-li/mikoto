@@ -46,7 +46,7 @@ function invoke {
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 OUT=/dev/ttyUSB0;
 SPEED=115200;
-CLEARKER=;
+CLEARKER=$(echo '');
 
 args=()
 while [ "$#" != 0 ]; do
@@ -75,4 +75,4 @@ done
 # info "-s: ${SPEED}"
 # info "-c: ${CLEARKER}"
 # invoke id
-(python3 ./src/tty/qr_detector.py $OUT $SPEED) & CLEARKER
+(python3 ./src/tty/qr_detector.py $OUT $SPEED) & $CLEARKER
