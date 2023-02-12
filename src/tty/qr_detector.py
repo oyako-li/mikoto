@@ -25,6 +25,7 @@ while True:
         break
     except FileNotFoundError:
         os.makedirs(f"{path}")
+
 logger = logging.getLogger("g_code_logger")
 logger.setLevel(logging.DEBUG)
 _fh.setLevel(logging.DEBUG)
@@ -45,10 +46,27 @@ async_mode=None
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     # note that we set the 404 status explicitly
-#     return render_template('404.html'), 404
+
+import cv2
+from base_camera import BaseCamera
+
+
+class Camera(BaseCamera):
+    def __init__(self):
+        super().__init__()
+
+    @staticmethod
+    def frames():
+        camera = cv2.VideoCapture(0)
+        if not camera.isOpened():
+            raise RuntimeError('Could not start camera.')
+
+        while True:
+            # read current frame
+            _, img = camera.read()
+
+            # encode as a jpeg image and return it
+            yield cv2.imencode('.jpg', img)[1]
 
 @app.route('/')
 def home():
@@ -89,28 +107,28 @@ def frame_gen(env_func, *args, **kwargs):
 # @render_browser
 def main():
     global logger
-    SER = serial.Serial(sys.argv[1], sys.argv[2])
-    logger.info('set-g-code-G90:{}'.format(SER.write("G90\r\n".encode())))
-    qcd = cv2.QRCodeDetector()
-    cap = cv2.VideoCapture(0)
+    # SER = serial.Serial(sys.argv[1], sys.argv[2])
+    # logger.info('set-g-code-G90:{}'.format(SER.write("G90\r\n".encode())))
 
-    def read_position():
-        while True:
-            try:
-                logger.debug('read-g-code-M114:{}'.format(SER.write("M114\r\n".encode())))
-                bytesToRead = SER.inWaiting()
-                position = SER.read(bytesToRead).decode("utf-8")
-                position = float(position.split(' ')[1].split('Y:')[1])
-                logger.info(f'get-position:{position}')
-                return position
-            except Exception: pass
+    # def read_position():
+    #     while True:
+    #         try:
+    #             logger.debug('read-g-code-M114:{}'.format(SER.write("M114\r\n".encode())))
+    #             bytesToRead = SER.inWaiting()
+    #             position = SER.read(bytesToRead).decode("utf-8")
+    #             position = float(position.split(' ')[1].split('Y:')[1])
+    #             logger.info(f'get-position:{position}')
+    #             return position
+    #         except Exception: pass
 
-    position = read_position()
-    logger.info("first move".format(SER.write(f'G00 Y220 F8000.0;\r\n'.encode())) if position<220 else f'first position:{position}')
-    count = 0
-    pre_time = time.time()
+    # position = read_position()
+    # logger.info("first move".format(SER.write(f'G00 Y220 F8000.0;\r\n'.encode())) if position<220 else f'first position:{position}')
+    # count = 0
+    # pre_time = time.time()
     while True:
         try:
+            qcd = cv2.QRCodeDetector()
+            cap = cv2.VideoCapture(0)
             while cap.isOpened():
                 _, frame = cap.read()
                 if not _: 
@@ -122,45 +140,27 @@ def main():
                     logger.debug('image-threshold-error')
                     continue
                 retval, decoded_info, points, straight_qrcode = qcd.detectAndDecodeMulti(frame)
-                if retval:
-                    logger.debug('QR_GET')
-                    frame = cv2.polylines(frame, points.astype(int), True, (0, 255, 0), 3)
-                    if read_position()==220:
-                        now = time.time()
-                        logger.info('remove220to0:{}, count:{}, time:{}'.format(SER.write("G00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n".encode()), count, now-pre_time))
-                        count+=1
-                        pre_time=now
-                        time.sleep(2)
+                # if retval:
+                #     logger.debug('QR_GET')
+                #     frame = cv2.polylines(frame, points.astype(int), True, (0, 255, 0), 3)
+                #     if read_position()==220:
+                #         now = time.time()
+                #         logger.info('remove220to0:{}, count:{}, time:{}'.format(SER.write("G00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n".encode()), count, now-pre_time))
+                #         count+=1
+                #         pre_time=now
+                #         time.sleep(2)
                 _, frame = cv2.imencode('.png', frame)
                 frame = frame.tobytes()
                 emit('my responce',{'image':True, 'buffer':frame}, broadcast=True, namespace="/view")
 
         except Exception as e:
-            logger.error(e)
+            logger.error(f'EEError: {e}')
             time.sleep(2)
-        finally :
-            cv2.destroyAllWindows()
-            cap = cv2.VideoCapture(0)
-            logger.warning('camera-reloading')
+        # finally :
+        #     cv2.destroyAllWindows()
+        #     cap = cv2.VideoCapture(0)
+        #     logger.warning('camera-reloading')
 
-@socketio.event
-def get_render(req):
-    session['receive_count']=session.get('receive_count',0)+1
-    emit('receivers',
-        {'data': req['data'], 'count':session['receive_count']}
-    )
-
-@socketio.on('test')
-def handle_message(data):
-    global logger
-    logger.info(f'message:{data}')
-    emit('test_response', {'data':'Test complete'})
-
-@socketio.on('broadcast')
-def handle_broadcast(data):
-    global logger
-    logger.info(f'broadcasted:{data}')
-    emit('broadcast_response', {'data': 'Broadcast sent'}, broadcast=True)
 
 @socketio.on('connect', '/view')
 def connect():
@@ -172,9 +172,5 @@ def connect():
             thread = socketio.start_background_task(main)
     emit('my_response', {'data': 'connected', 'count':0})
 
-
-# if __name__ == '__main__':
-ctx = app.app_context()
-ctx.push()
-
-socketio.run(app, port=3001, debug=True)
+if __name__=='__main__':
+    socketio.run(app, port=3001, debug=True)
