@@ -10,7 +10,7 @@ from threading import Lock
 from datetime import datetime
 from flask import Flask, request, session, render_template, Response, send_from_directory, abort
 from flask_socketio import SocketIO, emit
-import requests
+# import requests
 # DIR_PATH = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_DIR = '../../templates/'
 LOG_FILE_DIR = '.log/'
@@ -40,7 +40,9 @@ logger.addHandler(_ch)
 logger.addHandler(_fh)
 
 app = Flask(__name__, static_folder='public', static_url_path='/', template_folder=TEMPLATE_DIR)
-socketio = SocketIO(app, async_mode=None)
+app.secret_key = 'change_this! and dont include it in questions!'
+async_mode=None
+socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
 # @app.errorhandler(404)
@@ -73,17 +75,18 @@ def frame_gen(env_func, *args, **kwargs):
         frame = frame.tobytes()
         yield frame
 
-def render_browser(env_func):
-    def wrapper(*args, **kwargs):
+# def render_browser(env_func):
+#     global logger
+#     def wrapper(*args, **kwargs):
+#         # @socketio.on('broadcast_view')
+#         def render_feed():
+#             logger.debug('emit:broadcast')            
+#             emit('broadcast_view',{'image':True, 'buffer':frame_gen(env_func, *args, **kwargs)}, broadcast=True)
 
-        @socketio.on('broadcast_view')
-        def render_feed():
-            emit('video',{'image':True, 'buffer':frame_gen(env_func, *args, **kwargs)}, broadcast=True)
-
-    return wrapper
+#     return wrapper
 
 
-@render_browser
+# @render_browser
 def main():
     global logger
     SER = serial.Serial(sys.argv[1], sys.argv[2])
@@ -128,7 +131,10 @@ def main():
                         count+=1
                         pre_time=now
                         time.sleep(2)
-                yield frame
+                _, frame = cv2.imencode('.png', frame)
+                frame = frame.tobytes()
+                emit('my responce',{'image':True, 'buffer':frame}, broadcast=True, namespace="/view")
+
         except Exception as e:
             logger.error(e)
             time.sleep(2)
@@ -150,20 +156,25 @@ def handle_message(data):
     logger.info(f'message:{data}')
     emit('test_response', {'data':'Test complete'})
 
-# @socketio.on('broadcast')
-# def handle_broadcast(data):
-#     global logger
-#     logger.info(f'broadcasted:{data}')
-#     emit('broadcast_response', {'data': 'Broadcast sent'}, broadcast=True)
+@socketio.on('broadcast')
+def handle_broadcast(data):
+    global logger
+    logger.info(f'broadcasted:{data}')
+    emit('broadcast_response', {'data': 'Broadcast sent'}, broadcast=True)
 
-@socketio.event
+@socketio.on('connect', '/view')
 def connect():
-    global thread
+    global thread, logger
+    logger.info('connect')
     with thread_lock:
         if thread is None:
+            logger.info('start thread')
             thread = socketio.start_background_task(main)
     emit('my_response', {'data': 'connected', 'count':0})
 
 
-if __name__ == '__main__':
-    socketio.run(app)
+# if __name__ == '__main__':
+ctx = app.app_context()
+ctx.push()
+
+socketio.run(app, port=3001, debug=True)
