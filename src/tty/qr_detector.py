@@ -86,14 +86,14 @@ if __name__ == '__main__':
     @render_browser
     def main(*args):
         SER = serial.Serial(args[1], args[2])
-        logger.info('set-gcode-G90:{}'.format(SER.write("G90\r\n".encode())))
+        logger.info('set-g-code-G90:{}'.format(SER.write("G90\r\n".encode())))
         qcd = cv2.QRCodeDetector()
         cap = cv2.VideoCapture(0)
 
         def read_position():
             while True:
                 try:
-                    logger.debug('read-gcode-M114:{}'.format(SER.write("M114\r\n".encode())))
+                    logger.debug('read-g-code-M114:{}'.format(SER.write("M114\r\n".encode())))
                     bytesToRead = SER.inWaiting()
                     position = SER.read(bytesToRead).decode("utf-8")
                     position = float(position.split(' ')[1].split('Y:')[1])
