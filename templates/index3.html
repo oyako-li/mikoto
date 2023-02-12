@@ -8,6 +8,8 @@
         .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script> -->
   </head>
 
   <body>
@@ -16,8 +18,24 @@
     <p style="text-align:center; font-size:40px; font-family:'Raleway', sans-serif;">env.<b>render</b></p>
     <table id="wrapper">
         <tr>
-            <td><img src="{{ url_for('render_feed') }}"></td>
+            <td><img id="video" src=""></td>
         </tr>
     </table>
   </body>
+  <script>
+    var ctx = document.getElementById("video").getContext('2d');
+    var socket = io();
+    socket.on('broadcast_view', function(data) {
+        console.log(data);
+        if(data.image) {
+          // var img = new Image();
+          // img.src = 'data:image/png;base64,' + data.buff;
+          const arrayBufferView = new Uint8Array(data.buff);
+          const blob = new Blob([arrayBufferView], {type: 'image/png'});
+          document.querySelector("#video").src = URL.createObjectURL(blob);
+        }
+    });
+    // const decoder = new TextDecoder();
+    // document.querySelector("#video").src = 'data:image/jpeg;base64,' + decoder.decode(data.buff);
+  </script>
 </html>
