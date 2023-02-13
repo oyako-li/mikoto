@@ -26,7 +26,7 @@ import time
 import serial
 import logging
 from datetime import datetime
-from flask import Flask, render_template, Response, send_from_directory, abort, jsonify
+from flask import Flask, render_template, Response, send_from_directory, abort
 
 from camera import Camera
 
@@ -64,7 +64,7 @@ app = Flask(__name__, static_folder='public', static_url_path='/', template_fold
 
 @app.route("/")
 def index():
-    return "Hello World!"
+    return render_template("index3.html")
 
 @app.route("/stream")
 def stream():
@@ -80,12 +80,12 @@ def get_files(file_path):
         logger.error(f"{e}, path:{file_path}")
         abort(404)
 
-@app.route('/get-files',methods = ['GET'])
-def get_files_list():
-    global logger
-    """Download a file."""
-    logger.info('get-log-files-list')
-    return jsonify({"logList":glob(f'{path}/*')})
+@app.context_processor
+def logs():
+   global logger
+   logger.info('get-logs')
+   files = glob.glob('.log/*/*.log')
+   return files
 
 def gen(camera):
    global logger
