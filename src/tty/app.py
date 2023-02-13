@@ -64,7 +64,7 @@ app = Flask(__name__, static_folder='public', static_url_path='/', template_fold
 
 @app.route("/")
 def index():
-    return render_template("index3.html")
+    return render_template("index4.html")
 
 @app.route("/stream")
 def stream():
@@ -75,7 +75,7 @@ def get_files(file_path):
     global logger
     """Download a file."""
     try:
-        return send_from_directory('../../.log/', f"{file_path}.log", as_attachment=True)
+        return send_from_directory('../../.log/', f"{file_path}", as_attachment=True)
     except FileNotFoundError as e:
         logger.error(f"{e}, path:{file_path}")
         abort(404)
@@ -83,9 +83,9 @@ def get_files(file_path):
 @app.context_processor
 def logs():
    global logger
-   logger.info('get-logs')
-   files = glob.glob('.log/*/*.log')
-   return files
+   files = sorted(glob('.log/*/*.log'), key=os.path.getmtime)
+   logger.info(f'get-logs:{files}')
+   return dict(logs=files)
 
 def gen(camera):
    global logger
