@@ -21,4 +21,4 @@ class Camera(BaseCamera):
             if not _: continue
 
             # encode as a jpeg image and return it
-            yield cv2.imencode('.jpg', frame)[1]#.tobytes()
+            yield frame

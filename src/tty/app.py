@@ -18,6 +18,7 @@
 # if __name__ == '__main__':
 #    app.run(host='0.0.0.0', port=8000)
 
+from glob import glob
 import os
 import sys
 import cv2
@@ -25,7 +26,7 @@ import time
 import serial
 import logging
 from datetime import datetime
-from flask import Flask, render_template, Response, send_from_directory, abort
+from flask import Flask, render_template, Response, send_from_directory, abort, jsonify
 
 from camera import Camera
 
@@ -69,7 +70,7 @@ def index():
 def stream():
     return render_template("index3.html")
 
-@app.route('/get-files/<path:file_path>',methods = ['GET','POST'])
+@app.route('/.log/<path:file_path>',methods = ['GET','POST'])
 def get_files(file_path):
     global logger
     """Download a file."""
@@ -78,6 +79,13 @@ def get_files(file_path):
     except FileNotFoundError as e:
         logger.error(f"{e}, path:{file_path}")
         abort(404)
+
+@app.route('/get-files',methods = ['GET'])
+def get_files_list():
+    global logger
+    """Download a file."""
+    logger.info('get-log-files-list')
+    return jsonify({"logList":glob(f'{path}/*')})
 
 def gen(camera):
    global logger
@@ -115,7 +123,7 @@ def gen(camera):
             time.sleep(2)
       if frame is not None:
          yield (b"--frame\r\n"
-               b"Content-Type: image/jpeg\r\n\r\n" + frame.tobytes() + b"\r\n")
+               b"Content-Type: image/jpeg\r\n\r\n" + cv2.imencode('.jpg', frame)[1].tobytes() + b"\r\n")
       else:
          print("frame is none")
 
