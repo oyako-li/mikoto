@@ -75,6 +75,8 @@ class MyThread(threading.Thread):
 
     def run(self):
         global logger, SER
+        logger.info('start')
+
         try:
             camera = Camera()
             logger.info('set-g-code-G90:{}'.format(SER.write("G90\r\n".encode())))
@@ -120,11 +122,12 @@ class MyThread(threading.Thread):
 
 jobs = {}
 
-@app.route('/start/<id>/')
-def root(id):
+# @app.route('/start/<id>/')
+def start(id):
     t = MyThread()
-    t.start()
+    t.run()
     jobs[id] = t
+    app.run(host="0.0.0.0", port=3001)
     return make_response(f'{id}の処理を受け付けました\n'), 202
 
 @app.route('/stop/<id>/')
@@ -212,5 +215,4 @@ def video_feed():
 
 if __name__ == "__main__":
     app.debug = True
-    root(1)
-    app.run(host="0.0.0.0", port=3001)
+    start(1)
