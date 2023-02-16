@@ -25,6 +25,7 @@ import cv2
 import time
 import serial
 import logging
+import requests
 from datetime import datetime
 from flask import Flask, render_template, Response, send_from_directory, abort
 
@@ -84,7 +85,6 @@ def get_files(file_path):
 def logs():
    global logger
    files = sorted(glob('.log/*/*.log'), key=os.path.getmtime)
-   logger.info(f'get-logs:{files}')
    return dict(logs=files)
 
 def gen(camera):
@@ -135,4 +135,5 @@ def video_feed():
 
 if __name__ == "__main__":
     app.debug = True
+    requests.get('http://localhost:3001/')
     app.run(host="0.0.0.0", port=3001)
