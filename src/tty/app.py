@@ -33,6 +33,7 @@ from camera import Camera
 
 TEMPLATE_DIR = '../../templates/'
 LOG_FILE_DIR = '.log/'
+SER = serial.Serial(sys.argv[1], sys.argv[2])
 
 filename=None
 path=None
@@ -60,8 +61,84 @@ logger.addHandler(_ch)
 logger.addHandler(_fh)
 
 app = Flask(__name__, static_folder='public', static_url_path='/', template_folder=TEMPLATE_DIR)
-# app = Flask(__name__, template_folder='../../templates/')
 
+from flask import Flask, make_response
+import threading
+
+class MyThread(threading.Thread):
+    def __init__(self):
+        super(MyThread, self).__init__()
+        self.stop_event = threading.Event()
+
+    def stop(self):
+        self.stop_event.set()
+
+    def run(self):
+        global logger, SER
+        try:
+            camera = Camera()
+            logger.info('set-g-code-G90:{}'.format(SER.write("G90\r\n".encode())))
+            def read_position():
+                while True:
+                    try:
+                        logger.debug('read-g-code-M114:{}'.format(SER.write("M114\r\n".encode())))
+                        bytesToRead = SER.inWaiting()
+                        position = SER.read(bytesToRead).decode("utf-8")
+                        position = float(position.split(' ')[1].split('Y:')[1])
+                        logger.info(f'get-position:{position}')
+                        return position
+                    except Exception: pass
+            
+            position = read_position()
+            logger.info("first move".format(SER.write(f'G00 Y220 F8000.0;\r\n'.encode())) if position<220 else f'first position:{position}')
+            count = 0
+            pre_time = time.time()
+            qcd = cv2.QRCodeDetector()
+            
+            while True:
+                frame = camera.get_frame()
+
+                retval, decoded_info, points, straight_qrcode = qcd.detectAndDecodeMulti(frame)
+                if retval:
+                    logger.debug('QR_GET')
+                    frame = cv2.polylines(frame, points.astype(int), True, (0, 255, 0), 3)
+                    if read_position()==220:
+                        now = time.time()
+                        logger.info('remove220to0:{}, count:{}, time:{}'.format(SER.write("G00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n".encode()), count, now-pre_time))
+                        count+=1
+                        pre_time=now
+                        time.sleep(2)
+                if frame is not None:
+                    yield Response((b"--frame\r\n"
+                        b"Content-Type: image/jpeg\r\n\r\n" + cv2.imencode('.jpg', frame)[1].tobytes() + b"\r\n"),
+                        mimetype="multipart/x-mixed-replace; boundary=frame")
+                else:
+                    print("frame is none")
+                if self.stop_event.is_set():break
+        finally:
+            print('時間のかかる処理が終わりました\n')
+
+jobs = {}
+
+@app.route('/start/<id>/')
+def root(id):
+    t = MyThread()
+    t.start()
+    jobs[id] = t
+    return make_response(f'{id}の処理を受け付けました\n'), 202
+
+@app.route('/stop/<id>/')
+def stop(id):
+    jobs[id].stop()
+    del jobs[id]
+    return make_response(f'{id}の中止処理を受け付けました\n'), 202
+
+@app.route('/status/<id>/')
+def status(id):
+    if id in jobs:
+        return make_response(f'{id}は実行中です\n'), 200
+    else:
+        return make_response(f'{id}は実行していません\n'), 200
 
 @app.route("/")
 def index():
@@ -73,8 +150,8 @@ def stream():
 
 @app.route('/.log/<path:file_path>',methods = ['GET','POST'])
 def get_files(file_path):
-    global logger
     """Download a file."""
+    global logger
     try:
         return send_from_directory('../../.log/', f"{file_path}", as_attachment=True)
     except FileNotFoundError as e:
@@ -135,5 +212,5 @@ def video_feed():
 
 if __name__ == "__main__":
     app.debug = True
-    requests.get('http://localhost:3001/')
+    root(1)
     app.run(host="0.0.0.0", port=3001)
