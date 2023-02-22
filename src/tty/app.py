@@ -98,7 +98,7 @@ class MyThread(threading.Thread):
             qcd = cv2.QRCodeDetector()
             
             while True:
-                frame = camera.get_frame()
+                frame = camera.frame()
 
                 retval, decoded_info, points, straight_qrcode = qcd.detectAndDecodeMulti(frame)
                 if retval:
@@ -111,8 +111,7 @@ class MyThread(threading.Thread):
                         pre_time=now
                         time.sleep(2)
                 if frame is not None:
-                    yield Response((b"--frame\r\n"
-                        b"Content-Type: image/jpeg\r\n\r\n" + cv2.imencode('.jpg', frame)[1].tobytes() + b"\r\n"),
+                    yield Response((b"--frame\r\n"+b"Content-Type: image/jpeg\r\n\r\n" + cv2.imencode('.jpg', frame)[1].tobytes() + b"\r\n"),
                         mimetype="multipart/x-mixed-replace; boundary=frame")
                 else:
                     print("frame is none")
@@ -122,12 +121,13 @@ class MyThread(threading.Thread):
 
 jobs = {}
 
-# @app.route('/start/<id>/')
-def start(id):
+@app.route('/start/<id>/')
+def root(id):
+    global logger
     t = MyThread()
-    t.run()
+    t.start()
+    logger.debug('start-thread')
     jobs[id] = t
-    app.run(host="0.0.0.0", port=3001)
     return make_response(f'{id}の処理を受け付けました\n'), 202
 
 @app.route('/stop/<id>/')
@@ -215,4 +215,5 @@ def video_feed():
 
 if __name__ == "__main__":
     app.debug = True
-    start(1)
+    app.run(host="0.0.0.0", port=3001, threaded=True)
+    print(requests.get('http://localhost:3001/start/1'))
