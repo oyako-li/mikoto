@@ -11,7 +11,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-    publicPath: '/dist/renderer/'
+    publicPath: '/dist/renderer/',
+    library: { type: 'commonjs2' }
   },
   resolve: {
     extensions: ['.ts', '.js'],
@@ -55,5 +56,8 @@ module.exports = {
     useLocalIp: true,
     writeToDisk: true
   },
-  devtool: 'inline-source-map'
+  devtool: 'inline-source-map',
+  externals: {
+    serialport: "serialport",
+ },
 }

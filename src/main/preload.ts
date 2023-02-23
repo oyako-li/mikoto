@@ -8,6 +8,6 @@ contextBridge.exposeInMainWorld('versions', {
 });
 
 contextBridge.exposeInMainWorld('clearkerApi', {
-  getStream: async ()=>ipcRenderer.invoke('get-stream'),
-  sendGCode: async (data:any)=>ipcRenderer.invoke('send-GCode', data),
+  get: async (data?:any)=>ipcRenderer.invoke('get', data),
+  post: async (data:any)=>ipcRenderer.invoke('post', data),
 });

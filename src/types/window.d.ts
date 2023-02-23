@@ -1,7 +1,7 @@
 interface Window {
     clearkerApi: {
-        getStream(): Promise<any>;
-        sendGCode(data:string): Promise<any>;
+        get(data?:string): Promise<any>;
+        post(data:string): Promise<any>;
     }
 }
 declare var window: Window

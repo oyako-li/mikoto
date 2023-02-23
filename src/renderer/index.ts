@@ -96,7 +96,7 @@ async function load() {
       updatePoint(point)
     }
     const _handleOnMouseClick = async (e: MouseEvent) => {
-      console.log(await window.clearkerApi.getStream());
+      console.log(await window.clearkerApi.get('M114\r\n'));
     }
     document.body.addEventListener('mousemove', _handleOnMouseMove, false);
     document.body.addEventListener('click', _handleOnMouseClick, false);
@@ -131,8 +131,7 @@ async function load() {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
-          console.log(await window.clearkerApi.sendGCode('M114\r\n'));
-          clickedHandler();
+          console.log(await window.clearkerApi.get('M114\r\n'));
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;

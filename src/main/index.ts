@@ -3,6 +3,7 @@
  *
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
+ * npm install --no-save --build-from-source serialport@10.4.0 // build serialport
  */
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { SerialPort } from 'serialport';
@@ -12,23 +13,29 @@ import fs from 'fs';
 
 function myLog(file?:string) {
   return function() {
-    fs.appendFileSync(file || './.log/log.log', Array.from(arguments).join(''));
+    const date = new Date();
+    const path = `./.log/${date.getFullYear()}-${date.getMonth()+1}`;
+    const now = `${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}-${date.getMilliseconds()}`;
+    if(!fs.existsSync(path)){
+      fs.mkdirSync(path, { recursive: true });
+    }
+    fs.appendFileSync(`${path}/${date.getDate()}.log`, `${now}, ${Array.from(arguments).join('')}\r\n`);
   }
 }
 
-console.log = myLog();
-console.warn = myLog();
-console.error = myLog('errorLog.log');
+console.log = console.info = console.warn = console.error = myLog();
 
-const errorHandler = (err:any)=>{
-  if (err) return console.error('Error: ', err.message);
-}
-
-const port = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 115200 }, errorHandler);
+const port = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 115200 });
+let result:any;
 
 port.on('readable', function () {
-  console.log('Data:', port.read());
+  result = port.read();
+  console.info('read:', result);
 });
+
+async function postGCode(event:Electron.IpcMainInvokeEvent, data:string){
+  return console.info(`write-post-{${data.replace(' ', '_')}}:`, port.write(`${data}\r\n`));
+}
 
 let win: BrowserWindow | null = null;
 
@@ -66,24 +73,17 @@ app.on('activate', () => {
 });
 
 
-ipcMain.handle('send-GCode', async (event, data)=>{
-  // return port.write(data, errorHandler);
-  console.log('', data)
-  return data;
-});
+ipcMain.handle('post', postGCode);
 
-ipcMain.handle('get-stream', async (event)=>{
-  return 'gstream';
+ipcMain.handle('get', async (event, data)=>{
+  if(data) console.log(`write-get-{${data.replace(' ','_')}}`, port.write(data));
+  return result;
 });
-// ipcMain.handle('delete-alert', async (event, data)=>{
-//   return;
-// });
-// ipcMain.handle('activate-alert', async (event, data)=>{
-//   return;
-// });
-// ipcMain.handle('deactivate-alert', async (event, data)=>{
-//   return;
-// });
-// ipcMain.handle('set-sound-alert', async (event, data)=>{
-//   return;
-// });
+// var num=0;
+
+// setInterval(()=>{
+//     var text = 'hoge';
+//     port.write(text+num, (err)=>{
+//         console.info('send data: ', text+num++);
+//     });
+// }, 1000);
