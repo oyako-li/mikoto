@@ -75,4 +75,4 @@ done
 # info "-s: ${SPEED}"
 # info "-c: ${CLEARKER}"
 # invoke id
-(python3 ./src/tty/qr_detector.py $OUT $SPEED) & $CLEARKER
+(python3 ./src/tty/qr_detector.py $OUT $SPEED) & (echo $CLEARKER)

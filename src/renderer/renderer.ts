@@ -72,7 +72,6 @@ export async function live2dRender(canvas: HTMLCanvasElement, _model: ArrayBuffe
   model.createRenderer()
   // テクスチャをレンダラに設定
   let i = 0;
-  console.log(buffers);
   for (let buffer of textures) {
     const texture = await createTexture(buffer, gl)
     model.getRenderer()
@@ -199,7 +198,6 @@ export async function live2dRender(canvas: HTMLCanvasElement, _model: ArrayBuffe
   const clickedHandler = () => {
     if (model.isMotionFinished) {
       const idx = Math.floor(Math.random() * model.motionNames.length);
-      console.log(idx);
       const name = model.motionNames[idx];
       model.startMotionByName(name);
       replayBlob(sounds[idx]);
