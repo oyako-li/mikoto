@@ -133,7 +133,6 @@ async function load() {
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
           console.log('position:', await window.clearkerApi.get('M114\r\n'));
-          await window.clearkerApi.post('G90\r\nG00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n');
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;

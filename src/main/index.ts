@@ -29,32 +29,33 @@ const port = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 115200 });
 let result:any;
 
 port.on('readable', function () {
-  result = `${port.read()}`;
+  result = `${port.read()}`.replace(' ', '_').replace('\r','_').replace('\n','_');
   console.info('manipurator-read:', result);
 });
 
 const admin_port = new SerialPort({ path: '/dev/ttyUSB1', baudRate: 19200 });
 let admin_result:any;
 admin_port.on('readable', function () {
-  admin_result = `${admin_port.read()}`;
+  admin_result = `${admin_port.read()}`.replace(' ', '_').replace('\r','_').replace('\n','_');
   console.info('admin-read:', admin_result);
 });
 
 async function post_manipulator(data:string){
-  return console.info(`manipulator-post-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, port.write(`${data}\r\n`));
+  return console.info(`manipulator-{${data}}:`.replace(' ', '_').replace('\r','_').replace('\n','_'), port.write(`${data}\r\n`));
 }
 
 async function post_admin(data:string){
-  return console.info(`admin-post-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, admin_port.write(`${data}\r\n`));
+  return console.info(`admin-{${data}}:`.replace(' ', '_').replace('\r','_').replace('\n','_'), admin_port.write(`${data}\r\n`));
 }
+
 async function get_manipulator(data?:string){
-  console.info(`manipulator-get-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, port.write(`${data}\r\n`));
-  return result;
+  if(data){await post_manipulator(data)};
+  return `${port.read()}`;
 }
 
 async function get_admin(data?:string){
-  console.info(`admin-get-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, admin_port.write(`${data}\r\n`));
-  return admin_result;
+  if(data){await post_admin(data)};
+  return `${admin_port.read()}`;
 }
 
 let win: BrowserWindow | null = null;
