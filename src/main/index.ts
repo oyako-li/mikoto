@@ -29,12 +29,32 @@ const port = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 115200 });
 let result:any;
 
 port.on('readable', function () {
-  result = port.read();
-  console.info('read:', result);
+  result = `${port.read()}`;
+  console.info('manipurator-read:', result);
 });
 
-async function postGCode(event:Electron.IpcMainInvokeEvent, data:string){
-  return console.info(`write-post-{${data.replace(' ', '_')}}:`, port.write(`${data}\r\n`));
+const admin_port = new SerialPort({ path: '/dev/ttyUSB1', baudRate: 19200 });
+let admin_result:any;
+admin_port.on('readable', function () {
+  admin_result = `${admin_port.read()}`;
+  console.info('admin-read:', admin_result);
+});
+
+async function post_manipulator(data:string){
+  return console.info(`manipulator-post-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, port.write(`${data}\r\n`));
+}
+
+async function post_admin(data:string){
+  return console.info(`admin-post-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, admin_port.write(`${data}\r\n`));
+}
+async function get_manipulator(data?:string){
+  console.info(`manipulator-get-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, port.write(`${data}\r\n`));
+  return result;
+}
+
+async function get_admin(data?:string){
+  console.info(`admin-get-{${data.replace(' ', '_').replace('\r','_').replace('\n','_')}}:`, admin_port.write(`${data}\r\n`));
+  return admin_result;
 }
 
 let win: BrowserWindow | null = null;
@@ -72,18 +92,12 @@ app.on('activate', () => {
   }
 });
 
-
-ipcMain.handle('post', postGCode);
+ipcMain.handle('post', (event, data)=>{
+  post_admin(data);
+  return post_manipulator(data);
+});
 
 ipcMain.handle('get', async (event, data)=>{
-  if(data) console.log(`write-get-{${data.replace(' ','_')}}`, port.write(data));
-  return result;
+  post_admin(data);
+  return await get_manipulator(data);
 });
-// var num=0;
-
-// setInterval(()=>{
-//     var text = 'hoge';
-//     port.write(text+num, (err)=>{
-//         console.info('send data: ', text+num++);
-//     });
-// }, 1000);

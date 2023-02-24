@@ -97,6 +97,7 @@ async function load() {
     }
     const _handleOnMouseClick = async (e: MouseEvent) => {
       console.log(await window.clearkerApi.get('M114\r\n'));
+      clickedHandler();
     }
     document.body.addEventListener('mousemove', _handleOnMouseMove, false);
     document.body.addEventListener('click', _handleOnMouseClick, false);
@@ -131,7 +132,8 @@ async function load() {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
-          console.log(await window.clearkerApi.post('G90\r\nG00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n'));
+          console.log('position:', await window.clearkerApi.get('M114\r\n'));
+          await window.clearkerApi.post('G90\r\nG00 Y00 F9000.0\r\nG00 Y220 F9000.0\r\n');
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
