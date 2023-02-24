@@ -96,7 +96,7 @@ async function load() {
       updatePoint(point)
     }
     const _handleOnMouseClick = async (e: MouseEvent) => {
-      console.log(await window.clearkerApi.get('M114\r\n'));
+      console.log(await window.clearkerApi.post('M114\r\n'));
       clickedHandler();
     }
     document.body.addEventListener('mousemove', _handleOnMouseMove, false);
@@ -132,6 +132,7 @@ async function load() {
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
+          console.log(code);
           console.log('position:', await window.clearkerApi.get('M114\r\n'));
         } else {
           outputMessage.hidden = false;
@@ -147,6 +148,6 @@ async function load() {
 };
 
 window.addEventListener('load', () => {
-  load()
+  load();
 });
 

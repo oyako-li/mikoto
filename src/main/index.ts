@@ -5,7 +5,9 @@
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  * npm install --no-save --build-from-source serialport@10.4.0 // build serialport
  */
-import { app, BrowserWindow, ipcMain } from 'electron';
+'use struct';
+
+import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import { SerialPort } from 'serialport';
 
 import path from 'path';
@@ -19,47 +21,27 @@ function myLog(file?:string) {
     if(!fs.existsSync(path)){
       fs.mkdirSync(path, { recursive: true });
     }
-    fs.appendFileSync(`${path}/${date.getDate()}.log`, `${now}, ${Array.from(arguments).join('')}\r\n`);
+    fs.appendFileSync(`${path}/${date.getDate()}.log`, `${now}, ${Array.from(arguments).join(' ')}\r\n`);
   }
 }
 
 console.log = console.info = console.warn = console.error = myLog();
-
 const port = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 115200 });
 let result:any;
 
-port.on('readable', function () {
-  result = `${port.read()}`.replace(' ', '_').replace('\r','_').replace('\n','_');
-  console.info('manipurator-read:', result);
-});
-
 const admin_port = new SerialPort({ path: '/dev/ttyUSB1', baudRate: 19200 });
 let admin_result:any;
-admin_port.on('readable', function () {
-  admin_result = `${admin_port.read()}`.replace(' ', '_').replace('\r','_').replace('\n','_');
-  console.info('admin-read:', admin_result);
-});
 
 async function post_manipulator(data:string){
-  return console.info(`manipulator-{${data}}:`.replace(' ', '_').replace('\r','_').replace('\n','_'), port.write(`${data}\r\n`));
+  return port.write(`${data}`);
 }
 
 async function post_admin(data:string){
-  return console.info(`admin-{${data}}:`.replace(' ', '_').replace('\r','_').replace('\n','_'), admin_port.write(`${data}\r\n`));
+  return admin_port.write(`${data}`);
 }
-
-async function get_manipulator(data?:string){
-  if(data){await post_manipulator(data)};
-  return `${port.read()}`;
-}
-
-async function get_admin(data?:string){
-  if(data){await post_admin(data)};
-  return `${admin_port.read()}`;
-}
-
+let count=0;
+let pre_time:Date;
 let win: BrowserWindow | null = null;
-
 function createWindow() {
   win = new BrowserWindow({ 
     width: 800, 
@@ -77,6 +59,12 @@ function createWindow() {
   win.maximize();
   win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   win.on('closed', () => {win = null});
+  win.webContents.on('new-window', function(e, url) {
+    e.preventDefault();
+    shell.openExternal(url);
+  });
+  post_manipulator('G90\r\nG00 Y220 F9000\r\n');
+  pre_time=new Date();
 }
 
 app.on('ready', createWindow);
@@ -94,11 +82,30 @@ app.on('activate', () => {
 });
 
 ipcMain.handle('post', (event, data)=>{
-  post_admin(data);
-  return post_manipulator(data);
+  return post_admin(data);
 });
 
 ipcMain.handle('get', async (event, data)=>{
-  post_admin(data);
-  return await get_manipulator(data);
+  return await post_manipulator(data);
+});
+
+port.on('readable', async function () {
+  result = `${port.read()}`.match(/Y:\d+\.\d+/);
+  if(result !== null) {
+    console.info('manipurator-read:', result);
+    // win.webContents.send('position', result);
+    let now_time = new Date();
+    let buf_time = now_time.getTime()-pre_time.getTime();
+    if (`${result}`==='Y:220.00' && buf_time>1000) {
+      let gcode = await port.write('G00 Y0 F9000\r\nG00 Y220 F9000\r\n');
+      post_admin(`${gcode}`);
+      console.log(`remove220to0:${gcode}, count:${count++}, time:${buf_time/1000}`);
+      pre_time=now_time;
+    }
+  }
+});
+
+admin_port.on('readable', function () {
+  admin_result = `${admin_port.read()}`.replace(' ', '_').replace('\r','_').replace('\n','_');
+  console.info('admin-read:', admin_result);
 });
