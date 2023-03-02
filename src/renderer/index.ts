@@ -133,7 +133,7 @@ async function load() {
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
           console.log(code);
-          console.log('position:', await window.clearkerApi.get('M114\r\n'));
+          if (code.data!=="")  console.log('position:', await window.clearkerApi.get('M114\r\n'));
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;

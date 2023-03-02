@@ -26,14 +26,14 @@ function myLog(file?:string) {
 }
 
 console.log = console.info = console.warn = console.error = myLog();
-const port = new SerialPort({ path: '/dev/ttyUSB0', baudRate: 115200 });
+const port = new SerialPort({ path: '/dev/ttyUSB_manipulator', baudRate: 115200 });
 let result:any;
 
-const admin_port = new SerialPort({ path: '/dev/ttyUSB1', baudRate: 19200 });
-let admin_result:any;
+const admin_port = new SerialPort({ path: '/dev/ttyUSB_admin', baudRate: 19200 });
+let admin_result:any='';
 
 async function post_manipulator(data:string){
-  return port.write(`${data}`);
+  return console.log('post-manipulator:',port.write(`${data}\r\n`));
 }
 
 async function post_admin(data:string){
@@ -46,7 +46,7 @@ function createWindow() {
   win = new BrowserWindow({ 
     width: 800, 
     height: 600,
-    transparent: true,
+    // transparent: true,
     // frame: false,
     resizable: true,
     // alwaysOnTop: true
@@ -72,6 +72,8 @@ app.on('ready', createWindow);
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
+    port.close();
+    admin_port.close();
   }
 });
 
@@ -82,7 +84,7 @@ app.on('activate', () => {
 });
 
 ipcMain.handle('post', (event, data)=>{
-  return post_admin(data);
+  return post_manipulator(data);
 });
 
 ipcMain.handle('get', async (event, data)=>{
@@ -106,6 +108,10 @@ port.on('readable', async function () {
 });
 
 admin_port.on('readable', function () {
-  admin_result = `${admin_port.read()}`.replace(' ', '_').replace('\r','_').replace('\n','_');
-  console.info('admin-read:', admin_result);
+  admin_result += `${admin_port.read()}`;
+  if (admin_result.match(';')) {
+    console.info('admin-read:', admin_result.match(/[A-Z][A-Z]=(.+)/)[1]);
+    post_manipulator(admin_result.match(/[A-Z][A-Z]=(.+)/)[1]);
+    admin_result='';
+  }
 });
