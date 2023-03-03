@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-  
+<html lang="ja">
   <head>
-    <meta charset="utf-8" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://localhost:3000/"> -->
-    <title>Live2D Cubism SDK for Web Example</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>webpack × React × TypeScript</title>
     <style>
       html,
       body {
@@ -19,17 +18,7 @@
       }
     </style>
   </head>
-
   <body>
-    <canvas id="canvas"></canvas>
-    <div id="loadingMessage" hidden="">⌛ Loading video...</div>
-    <canvas id="video"></canvas>
-    <div id="output">
-      <div id="outputMessage">No QR code detected.</div>
-      <div hidden=""><b>Data:</b> <span id="outputData"></span></div>
-    </div>
-    <script src="./lib/live2dcubismcore.min.js"></script>
-    <script src="./index.js"></script>
+    <div id="root"></div>
   </body>
-
 </html>

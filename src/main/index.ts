@@ -57,12 +57,14 @@ function createWindow() {
     },
   });
   win.maximize();
-  win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
+  win.loadURL(`http://localhost:3000/`);
+  // win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   win.on('closed', () => {win = null});
   win.webContents.on('new-window', function(e, url) {
     e.preventDefault();
     shell.openExternal(url);
   });
+
   post_manipulator('G90\r\nG00 Y220 F9000\r\n');
   pre_time=new Date();
 }
@@ -87,6 +89,17 @@ ipcMain.handle('post', (event, data)=>{
 
 ipcMain.handle('get', async (event, data)=>{
   return await post_manipulator(data);
+});
+
+ipcMain.handle('stream', async (event, data)=>{
+  return event.sender.send("enbody", data);
+});
+
+ipcMain.handle('voice', async (event, data)=>{
+  let newData = data.split(';');
+  newData[0] = "data:audio/ogg;";
+  newData = newData[0] + newData[1];
+  return event.sender.send('speak', newData);
 });
 
 port.on('readable', async function () {

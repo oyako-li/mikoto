@@ -75,4 +75,5 @@ done
 # info "-s: ${SPEED}"
 # info "-c: ${CLEARKER}"
 # invoke id
+# E4:5F:01:37:15:65	192.168.0.10
 (python3 ./src/tty/qr_detector.py $OUT $SPEED) & (echo $CLEARKER)
