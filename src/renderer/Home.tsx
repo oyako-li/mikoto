@@ -4,6 +4,7 @@ import axios from 'axios';
 import { live2dRender } from './renderer';
 import { getAngle, getDistance } from '../util/MathUtil';
 import React, { useRef, useState, useEffect } from 'react';
+import './Home.css';
 
 type vec = {
   x:number;
@@ -81,7 +82,9 @@ export const Home = () => {
       let point = new FacePoint();
       // Use facingMode: environment to attemt to get the front camera on phones
       navigator.mediaDevices.getUserMedia({audio: true, video: { facingMode: "environment" } }).then(function(stream) {
-        camera.srcObject = stream;
+        const videoStream = new MediaStream([stream.getVideoTracks()[0]]);
+
+        camera.srcObject = videoStream;
         camera.setAttribute("playsinline", 'true'); // required to tell iOS safari we don't want fullscreen
         camera.play();
         let audioStream = new MediaStream(stream.getAudioTracks());
@@ -175,10 +178,8 @@ export const Home = () => {
 
   return (
     <>
-      <canvas ref={canvasRef} ></canvas>
-      <canvas ref={videoRef}></canvas>
-
-      <script src="./lib/live2dcubismcore.min.js"></script>
+      <canvas ref={canvasRef} className='canvas'></canvas>
+      <canvas ref={videoRef} hidden></canvas>
     </>
   )
 }

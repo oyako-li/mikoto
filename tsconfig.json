@@ -23,10 +23,18 @@
       "@framework/*": ["Framework/*"]
     }
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "paths": {
+        "*": ["node_modules/*", "./src/types/*"],
+      }
+  }},
   "include": [
     "src/**/*.ts",
-    "Core/*.ts"
-, "src/renderer/Home.tsx"  ],
+    "Core/*.ts", 
+    "src/**/*.tsx" 
+  ],
   "exclude": [
     "node_modules",
     "dist"

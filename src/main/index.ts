@@ -5,18 +5,21 @@
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  * npm install --no-save --build-from-source serialport@10.4.0 // build serialport
  */
-'use struct';
 
-import { app, BrowserWindow, ipcMain, shell } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import { SerialPort } from 'serialport';
-
 import path from 'path';
 import fs from 'fs';
+import expressApp from './server';
+
+expressApp.listen(3000, '127.0.0.1', () => {
+  console.log('Listening on port 3000');
+});
 
 function myLog(file?:string) {
   return function() {
     const date = new Date();
-    const path = `./.log/${date.getFullYear()}-${date.getMonth()+1}`;
+    const path = `./dist/log/${date.getFullYear()}-${date.getMonth()+1}`;
     const now = `${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}-${date.getMilliseconds()}`;
     if(!fs.existsSync(path)){
       fs.mkdirSync(path, { recursive: true });
@@ -29,7 +32,7 @@ console.log = console.info = console.warn = console.error = myLog();
 const port = new SerialPort({ path: '/dev/ttyUSB_manipulator', baudRate: 115200 });
 let result:any;
 
-const admin_port = new SerialPort({ path: '/dev/ttyUSB_admin', baudRate: 19200 });
+const admin_port = new SerialPort({ path: '/dev/ttyUSB_admin', baudRate: 19200, dataBits: 8, stopBits: 1});
 let admin_result:any='';
 
 async function post_manipulator(data:string){
@@ -47,7 +50,7 @@ function createWindow() {
     width: 800, 
     height: 600,
     // transparent: true,
-    // frame: false,
+    frame: false,
     resizable: true,
     // alwaysOnTop: true
     webPreferences: {
@@ -57,14 +60,9 @@ function createWindow() {
     },
   });
   win.maximize();
-  win.loadURL(`http://localhost:3000/`);
+  win.loadURL(`http://127.0.0.1:3000/#/home`);
   // win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   win.on('closed', () => {win = null});
-  win.webContents.on('new-window', function(e, url) {
-    e.preventDefault();
-    shell.openExternal(url);
-  });
-
   post_manipulator('G90\r\nG00 Y220 F9000\r\n');
   pre_time=new Date();
 }
@@ -94,14 +92,14 @@ ipcMain.handle('get', async (event, data)=>{
 });
 
 ipcMain.handle('stream', async (event, data)=>{
-  return event.sender.send("enbody", data);
+  return ipcMain.emit("enbody", data);
 });
 
 ipcMain.handle('voice', async (event, data)=>{
   let newData = data.split(';');
   newData[0] = "data:audio/ogg;";
   newData = newData[0] + newData[1];
-  return event.sender.send('speak', newData);
+  return ipcMain.emit('speak', newData);
 });
 
 port.on('readable', async function () {
@@ -123,8 +121,24 @@ port.on('readable', async function () {
 admin_port.on('readable', function () {
   admin_result += `${admin_port.read()}`;
   if (admin_result.match(';')) {
-    console.info('admin-read:', admin_result.match(/[A-Z][A-Z]=(.+)/)[1]);
-    post_manipulator(admin_result.match(/[A-Z][A-Z]=(.+)/)[1]);
+    const command:string = admin_result.match(/([A-Z][A-Z])=/)[1];
+    const code:string = admin_result.match(/[A-Z][A-Z]=(.+)/)[1];
+    console.info('admin-read:', code);
+    switch (command){
+      case 'GC':
+        post_manipulator(code);
+        post_admin('ACK');
+        break;
+      case 'KN':
+        ipcMain.emit('price', code);
+        break;
+      case 'OS':
+        ipcMain.emit('voice', code);
+        break;
+      default:
+        post_admin('NAK');
+        break;
+    }
     admin_result='';
   }
 });

@@ -1,11 +1,12 @@
-import React from 'react';
+import React ,{ useRef, useState, useEffect } from 'react';
 
-export const Body: React.VFC = () => 
-(
-  <>
-    <canvas id="camera"></canvas>
-    <audio id="voice"></audio>
-  </>
-)
+export const Body: React.VFC = () => {
+  return (
+    <>
+      <img src="" alt="" className="camera"></img>
+      <audio className="voice"></audio>
+   </>
+ )
+}
 
 export default Body;

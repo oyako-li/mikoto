@@ -1,21 +1,21 @@
-import { Live2DCubismFramework } from '@framework/live2dcubismframework'
+import { Live2DCubismFramework } from '../../../Framework/live2dcubismframework'
 const CubismFramework = Live2DCubismFramework.CubismFramework
 
-import { Live2DCubismFramework as icubismmodelsetting } from '@framework/icubismmodelsetting'
+import { Live2DCubismFramework as icubismmodelsetting } from '../../../Framework/icubismmodelsetting'
 abstract class ICubismModelSetting extends icubismmodelsetting.ICubismModelSetting {}
 
-import { Live2DCubismFramework as cubismmodelsettingjson } from '@framework/cubismmodelsettingjson'
+import { Live2DCubismFramework as cubismmodelsettingjson } from '@../../../Framework/cubismmodelsettingjson'
 class CubismModelSettingJson extends cubismmodelsettingjson.CubismModelSettingJson {}
 
 // math
-import { Live2DCubismFramework as cubismmatrix44 } from '@framework/math/cubismmatrix44'
+import { Live2DCubismFramework as cubismmatrix44 } from '../../../Framework/math/cubismmatrix44'
 class CubismMatrix44 extends cubismmatrix44.CubismMatrix44 {}
 
-import { Live2DCubismFramework as cubismusermodel } from '@framework/model/cubismusermodel'
+import { Live2DCubismFramework as cubismusermodel } from '../../../Framework/model/cubismusermodel'
 class CubismUserModel extends cubismusermodel.CubismUserModel {}
 
 // motion
-import { Live2DCubismFramework as acubismmotion } from '@framework/motion/acubismmotion'
+import { Live2DCubismFramework as acubismmotion } from '../../../Framework/motion/acubismmotion'
 abstract class ACubismMotion extends acubismmotion.ACubismMotion {}
 
 // import { Live2DCubismFramework as cubismmotion } from './Framework/motion/cubismmotion'
@@ -25,19 +25,19 @@ abstract class ACubismMotion extends acubismmotion.ACubismMotion {}
 // class CubismMotionManager extends cubismmotionmanager.CubismMotionManager {}
 
 // physics
-import { Live2DCubismFramework as cubismphysics } from '@framework/physics/cubismphysics'
+import { Live2DCubismFramework as cubismphysics } from '../../../Framework/physics/cubismphysics'
 class CubismPhysics extends cubismphysics.CubismPhysics {}
 
 // cubismid
-import { Live2DCubismFramework as cubismid } from '@framework/id/cubismid'
+import { Live2DCubismFramework as cubismid } from '../../../Framework/id/cubismid'
 type CubismIdHandle = cubismid.CubismIdHandle
 
 // effect
-import { Live2DCubismFramework as cubismeyeblink } from '@framework/effect/cubismeyeblink'
+import { Live2DCubismFramework as cubismeyeblink } from '../../../Framework/effect/cubismeyeblink'
 class CubismEyeBlink extends cubismeyeblink.CubismEyeBlink {}
 
 // type
-import { Live2DCubismFramework as csmvector } from '@framework/type/csmvector'
+import { Live2DCubismFramework as csmvector } from '../../../Framework/type/csmvector'
 class csmVector<T> extends csmvector.csmVector<T> {}
 
 export {

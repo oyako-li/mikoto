@@ -18,14 +18,15 @@ contextBridge.exposeInMainWorld('streamApi', {
 });
 
 ipcRenderer.on('enbody', (event, image)=>{
-  const camera:HTMLImageElement = document.querySelector('#camera');
+  console.log('come enbody');
+  const camera:HTMLImageElement = document.querySelector('.camera');
   if (camera) {
     camera.src = image;
   }
 });
 
 ipcRenderer.on('speak', (event, voice)=>{
-  const speak:HTMLAudioElement = document.querySelector('#voice');
+  const speak:HTMLAudioElement = document.querySelector('.voice');
   if (speak){
     speak.src=voice;
     speak.play();
