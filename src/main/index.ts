@@ -11,15 +11,7 @@ import { SerialPort } from 'serialport';
 import path from 'path';
 import glob from 'glob';
 import fs from 'fs';
-import cookieParser from 'cookie-parser';
-import createError from 'http-errors';
 import router from './server';
-// import express from 'express';
-router.get('/test/', async (req, res)=>res.send({ok:true}));
-
-router.listen(3000, () => {
-  console.log('Listening on port 3000');
-});
 
 function myLog(file?:string) {
   return function() {
@@ -33,11 +25,10 @@ function myLog(file?:string) {
   }
 }
 
-// console.log = console.info = console.warn = console.error = myLog();
+console.log = console.info = console.warn = console.error = myLog();
 
 const port = new SerialPort({ path: '/dev/ttyUSB_manipulator', baudRate: 115200 });
 const admin_port = new SerialPort({ path: '/dev/ttyUSB_admin', baudRate: 19200, dataBits: 8, stopBits: 1});
-// const router = express();
 let result:any;
 let admin_result:any='';
 let count=0;
@@ -54,23 +45,54 @@ async function post_admin(data:string){
 }
 
 function createWindow() {
-  // router.set('view engine', 'html');
-  win = new BrowserWindow({ 
-    width: 800, 
-    height: 600,
-    frame: false,
-    resizable: true,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js'),
-    },
+  
+  router.get('/', async (req, res) => { // <2>
+    console.log('get /',__dirname);
+    // res.send({ok:true});
+    res.sendFile(path.join(__dirname, 'index.html'));
   });
-  win.maximize();
-  win.loadURL(`http://127.0.0.1:3000/#/home`);
-  win.on('closed', () => {win = null});
-  post_manipulator('G90\r\nG00 Y220 F9000\r\n');
-  pre_time=new Date();
+  
+  router.get('/test/', (req, res)=>res.send({ok:true}));
+  
+  router.get('/list/', async (req, res) => {
+    const files = await glob(`${app.getPath('userData')}/log/*/*.log`);
+    console.log(files);
+    return res.json({files:files});
+  });
+
+  router.get('/log/:filename', async (req, res) => {
+    const filename = req.params.filename;
+
+    res.download(filename.replaceAll(',','/'), (err) => {
+      if (err) {
+        console.log('Error downloading file:', err);
+      } else {
+        console.log('File downloaded successfully');
+      }
+    });
+  });
+
+  
+
+  router.listen(3000, () => {
+    console.log('Listening on port 3000');
+    win = new BrowserWindow({ 
+      width: 800, 
+      height: 600,
+      frame: false,
+      resizable: true,
+      webPreferences: {
+        nodeIntegration: true,
+        contextIsolation: true,
+        preload: path.join(__dirname, 'preload.js'),
+      },
+    });
+    win.maximize();
+    win.loadURL(`http://127.0.0.1:3000/#/home`);
+    win.on('closed', () => {win = null});
+    post_manipulator('G90\r\nG00 Y220 F9000\r\n');
+    pre_time=new Date();
+  });
 }
 
 app.on('ready', createWindow);

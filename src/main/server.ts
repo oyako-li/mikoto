@@ -1,13 +1,16 @@
 import express from 'express';
+import { createEngine } from './createEngine';
 import cookieParser from 'cookie-parser';
 import createError from 'http-errors';
 import path from 'path';
-import pug from 'pug';
+
 const router = express();
-// router.set('view engine', 'ejs');
-// router.set('view', path.join(__dirname, '../renderer'))
-router.set("views", path.join(__dirname, "views"))
-router.set("view engine", "pug")
+// const isTsNodeDev = Object.keys(require.cache).some(path => path.includes('/ts-node-dev/'));
+// const ext = isTsNodeDev ? 'tsx' : 'js';
+// console.log(__dirname);
+// router.set('views', path.join(__dirname, '../src/renderer'));
+// router.set('view engine', ext);
+// router.engine(ext, createEngine());
 router.use(express.json());
 router.use(cookieParser());
 router.use(express.static('dist'));
@@ -17,7 +20,7 @@ router.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD');
-  next(createError(404));
+  next();
 });
 // error handler
 router.use(function(err:any, req:any, res:any, next:any) {
@@ -28,28 +31,6 @@ router.use(function(err:any, req:any, res:any, next:any) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-router.get('/', async (req, res) => { // <2>
-  console.log('get /');
-  res.sendFile(path.join(__dirname, 'index.html'))
-});
-
-// router.get('/list/', async (req, res) => {
-//   const files = await glob(`${app.getPath('userData')}/log/*`);
-//   console.log(files);
-//   return res.json({ body:files});
-// });
-
-router.get('/log/:filename', async (req, res) => {
-  const filename = req.params.filename;
-  res.download(filename.replace(',','/'), (err) => {
-    if (err) {
-      console.log('Error downloading file:', err);
-    } else {
-      console.log('File downloaded successfully');
-    }
-  });
 });
 
 export default router;

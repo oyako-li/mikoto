@@ -57,12 +57,7 @@ const main: Configuration = {
 const preload: Configuration = {
   ...common,
   target: 'electron-preload',
-  entry: { preload: './src/main/preload.ts' },
-  resolve: {
-    alias:{
-      '@preload': path.resolve(__dirname, 'src/main/preload'),
-    }
-  }
+  entry: { preload: './src/main/preload.ts' }
 };
 
 const renderer: Configuration = {

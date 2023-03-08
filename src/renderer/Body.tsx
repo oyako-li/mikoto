@@ -12,7 +12,7 @@ export const Body: React.VFC = () => {
         'Content-Type': 'application/json'
       }
     }).then(res=>{console.log(res);return res.json()}).then(res=>{
-      setItemList(res.files.map((path:string)=><li key={id++}><a href={'/log/'+path.replace('/',',')}>{path}</a></li>));
+      setItemList(res.files.map((path:string)=><li key={id++}><a href={'/log/'+path.replaceAll('/',',')}>{path}</a></li>));
     }).catch((err)=>{
       console.log(err);
     });
