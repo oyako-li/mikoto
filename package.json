@@ -87,19 +87,6 @@
     },
     "build": {
         "appId": "oyako-li.clearker.app",
-        "productName": "接客係員",
-        "files": [
-            "dist/*",
-            "dist/**/*",
-            "node_modules/**/*",
-            "package.json"
-        ],
-        "extraFiles": [
-            {
-              "from": "Framework",
-              "to": "Framework",
-              "filter": ["**/*", "*"]
-            }
-        ]
+        "productName": "接客係員"
     }
 }

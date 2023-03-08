@@ -74,7 +74,7 @@ function createWindow() {
 
   
 
-  router.listen(3000, () => {
+  router.listen(3000, "127.0.0.1", () => {
     console.log('Listening on port 3000');
     win = new BrowserWindow({ 
       width: 800, 
@@ -170,6 +170,13 @@ admin_port.on('readable', function () {
     admin_result='';
   }
 });
+
+process.on('uncaughtException', (err,source)=>{
+  console.error(err, source);
+  app.quit();
+  port.close();
+  admin_port.close();
+})
 
 process.on('SIGINT',()=>{
   app.quit();

@@ -27,9 +27,6 @@
     "compilerOptions": {
       "target": "es2021",
       "module": "CommonJS",
-      "paths": {
-        "*": ["node_modules/*", "./src/types/*"],
-      }
   }},
   "include": [
     "src/**/*.ts",

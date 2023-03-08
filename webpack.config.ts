@@ -3,8 +3,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import path from 'path';
-
 const isDev = process.env.NODE_ENV === 'development';
 
 const common: Configuration = {
@@ -12,10 +10,6 @@ const common: Configuration = {
   externals: {fsevents:'fsevents', serialport: "serialport"},
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
-    alias: {
-      '@framework/*': './Framework/*',
-      '@type/*': './src/types/*',
-    }
   },
   output: {
     publicPath: './dist/',
@@ -37,15 +31,14 @@ const common: Configuration = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.pug$/,
-        use: ['pug-loader']
       }
     ],
   },
   watch: isDev,
   devtool: isDev ? 'source-map' : undefined,
+  watchOptions: {
+    ignored: /node_modules/
+  }
 };
 
 const main: Configuration = {
