@@ -179,7 +179,7 @@ export const Home = () => {
   return (
     <>
       <canvas ref={canvasRef} className='canvas'></canvas>
-      <canvas ref={videoRef} hidden></canvas>
+      <canvas ref={videoRef} ></canvas>
     </>
   )
 }
