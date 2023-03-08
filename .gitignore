@@ -1,5 +1,5 @@
 .gstr
 node_modules
-out/
 dist
 .log/
+release

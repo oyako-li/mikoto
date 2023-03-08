@@ -2,7 +2,7 @@ import { build } from 'electron-builder';
 
 build({
   config: {
-    productName: 'Electron App',
+    productName: 'Clearker',
     artifactName: '${productName}-${version}-${platform}-${arch}.${ext}',
     files: ['dist/**/*'],
     directories: {

@@ -1,4 +1,5 @@
-import { contextBridge, ipcRenderer } from 'electron';
+// import { contextBridge, ipcRenderer } from 'electron';
+const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('versions', {
   node: () => process.versions.node,
@@ -8,25 +9,25 @@ contextBridge.exposeInMainWorld('versions', {
 });
 
 contextBridge.exposeInMainWorld('clearkerApi', {
-  get: async (data?:any)=>ipcRenderer.invoke('get', data),
-  post: async (data:any)=>ipcRenderer.invoke('post', data),
+  get: async (data)=>ipcRenderer.invoke('get', data),
+  post: async (data)=>ipcRenderer.invoke('post', data),
 });
 
 contextBridge.exposeInMainWorld('streamApi', {
-  stream: (data:any)=>ipcRenderer.invoke('stream', data),
-  voice: (data:any)=>ipcRenderer.invoke('voice', data),
+  stream: (data)=>ipcRenderer.invoke('stream', data),
+  voice: (data)=>ipcRenderer.invoke('voice', data),
 });
 
 ipcRenderer.on('enbody', (event, image)=>{
   console.log('come enbody');
-  const camera:HTMLImageElement|null = document.querySelector('.camera');
+  const camera = document.querySelector('.camera');
   if (camera) {
     camera.src = image;
   }
 });
 
 ipcRenderer.on('speak', (event, voice)=>{
-  const speak:HTMLAudioElement|null = document.querySelector('.voice');
+  const speak = document.querySelector('.voice');
   if (speak){
     speak.src=voice;
     speak.play();

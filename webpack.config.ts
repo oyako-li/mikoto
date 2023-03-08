@@ -75,9 +75,6 @@ const renderer: Configuration = {
     new CopyPlugin({
       patterns: [
         { from: './src/model', to: 'model' },
-        { from: './templates', to: 'templates' },
-        { from: './views', to: 'views' },
-        { from: './.log', to: 'log' },
         { from: 'live2dcubismcore*', to: 'lib', context: 'Core' },
       ],
     }),

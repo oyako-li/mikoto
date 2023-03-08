@@ -2,47 +2,25 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import createError from 'http-errors';
 import path from 'path';
-import fs from 'fs';
-// import pug from '../../dist/views/list.pug';
-const app = express();
+import pug from 'pug';
+const router = express();
+// router.set('view engine', 'ejs');
+// router.set('view', path.join(__dirname, '../renderer'))
+router.set("views", path.join(__dirname, "views"))
+router.set("view engine", "pug")
+router.use(express.json());
+router.use(cookieParser());
+router.use(express.static('dist'));
+router.use(express.urlencoded({ extended: false }));
 
-app.use(express.static('dist'));
-// console.log(path.join(__dirname, '../../dist/log'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-
-app.set('views', __dirname + '/views');
-app.set('view engine', 'pug');
-
-// catch 404 and forward to error handler
-app.get("/log/", (req, res) => {
-  console.log(path.join(__dirname, './templates/index.html'), __dirname + '/views');
-  res.status(200).sendFile(path.join(__dirname, './templates/index.html'));
-});
-
-app.get('/list', (req, res) => {
-  const files = fs.readdirSync('./dist/log/');
-  res.render('list', { files });
-});
-
-app.get('/log/:filename', (req, res) => {
-  const filename = req.params.filename;
-  const filePath = __dirname + '/dist/' + filename;
-  res.download(filePath, (err) => {
-    if (err) {
-      console.log('Error downloading file:', err);
-    } else {
-      console.log('File downloaded successfully');
-    }
-  });
-});
-
-app.use(function(req, res, next) {
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, HEAD');
   next(createError(404));
 });
 // error handler
-app.use(function(err:any, req:any, res:any, next:any) {
+router.use(function(err:any, req:any, res:any, next:any) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
@@ -52,4 +30,26 @@ app.use(function(err:any, req:any, res:any, next:any) {
   res.render('error');
 });
 
-export default app;
+router.get('/', async (req, res) => { // <2>
+  console.log('get /');
+  res.sendFile(path.join(__dirname, 'index.html'))
+});
+
+// router.get('/list/', async (req, res) => {
+//   const files = await glob(`${app.getPath('userData')}/log/*`);
+//   console.log(files);
+//   return res.json({ body:files});
+// });
+
+router.get('/log/:filename', async (req, res) => {
+  const filename = req.params.filename;
+  res.download(filename.replace(',','/'), (err) => {
+    if (err) {
+      console.log('Error downloading file:', err);
+    } else {
+      console.log('File downloaded successfully');
+    }
+  });
+});
+
+export default router;

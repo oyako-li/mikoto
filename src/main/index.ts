@@ -9,17 +9,22 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { SerialPort } from 'serialport';
 import path from 'path';
+import glob from 'glob';
 import fs from 'fs';
-import expressApp from './server';
+import cookieParser from 'cookie-parser';
+import createError from 'http-errors';
+import router from './server';
+// import express from 'express';
+router.get('/test/', async (req, res)=>res.send({ok:true}));
 
-expressApp.listen(3000, '127.0.0.1', () => {
+router.listen(3000, () => {
   console.log('Listening on port 3000');
 });
 
 function myLog(file?:string) {
   return function() {
     const date = new Date();
-    const path = `./dist/log/${date.getFullYear()}-${date.getMonth()+1}`;
+    const path = `${app.getPath('userData')}/log/${date.getFullYear()}-${date.getMonth()+1}`;
     const now = `${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}-${date.getMilliseconds()}`;
     if(!fs.existsSync(path)){
       fs.mkdirSync(path, { recursive: true });
@@ -28,12 +33,17 @@ function myLog(file?:string) {
   }
 }
 
-console.log = console.info = console.warn = console.error = myLog();
-const port = new SerialPort({ path: '/dev/ttyUSB_manipulator', baudRate: 115200 });
-let result:any;
+// console.log = console.info = console.warn = console.error = myLog();
 
+const port = new SerialPort({ path: '/dev/ttyUSB_manipulator', baudRate: 115200 });
 const admin_port = new SerialPort({ path: '/dev/ttyUSB_admin', baudRate: 19200, dataBits: 8, stopBits: 1});
+// const router = express();
+let result:any;
 let admin_result:any='';
+let count=0;
+let pre_time:Date;
+let win: BrowserWindow | null = null;
+
 
 async function post_manipulator(data:string){
   return console.log('post-manipulator:',port.write(`${data}\r\n`));
@@ -42,17 +52,14 @@ async function post_manipulator(data:string){
 async function post_admin(data:string){
   return admin_port.write(`${data}`);
 }
-let count=0;
-let pre_time:Date;
-let win: BrowserWindow | null = null;
+
 function createWindow() {
+  // router.set('view engine', 'html');
   win = new BrowserWindow({ 
     width: 800, 
     height: 600,
-    // transparent: true,
     frame: false,
     resizable: true,
-    // alwaysOnTop: true
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
@@ -61,7 +68,6 @@ function createWindow() {
   });
   win.maximize();
   win.loadURL(`http://127.0.0.1:3000/#/home`);
-  // win.loadURL(`file://${path.join(__dirname, "../index.html")}`);
   win.on('closed', () => {win = null});
   post_manipulator('G90\r\nG00 Y220 F9000\r\n');
   pre_time=new Date();
@@ -142,3 +148,9 @@ admin_port.on('readable', function () {
     admin_result='';
   }
 });
+
+process.on('SIGINT',()=>{
+  app.quit();
+  port.close();
+  admin_port.close();
+})
