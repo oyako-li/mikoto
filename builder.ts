@@ -4,7 +4,7 @@ build({
   config: {
     productName: 'Clearker',
     artifactName: '${productName}-${version}-${platform}-${arch}.${ext}',
-    files: ['dist/**/*'],
+    files: ['dist/**/*', 'dist/*'],
     directories: {
       output: 'release',
       buildResources: 'assets',

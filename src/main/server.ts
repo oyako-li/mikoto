@@ -13,7 +13,7 @@ const router = express();
 // router.engine(ext, createEngine());
 router.use(express.json());
 router.use(cookieParser());
-router.use(express.static('dist'));
+router.use(express.static(path.join(__dirname)));
 router.use(express.urlencoded({ extended: false }));
 
 router.use(function(req, res, next) {
