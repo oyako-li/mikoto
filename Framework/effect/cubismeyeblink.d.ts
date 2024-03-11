@@ -4,10 +4,10 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as csmvector } from '../type/csmvector';
-import { Live2DCubismFramework as icubismmodelsetting } from '../icubismmodelsetting';
-import { Live2DCubismFramework as cubismid } from '../id/cubismid';
-import { Live2DCubismFramework as cubismmodel } from '../model/cubismmodel';
+import { Live2DCubismFramework as csmvector } from '../../src/type/csmvector';
+import { Live2DCubismFramework as icubismmodelsetting } from '../../src/icubismmodelsetting';
+import { Live2DCubismFramework as cubismid } from '../../src/id/cubismid';
+import { Live2DCubismFramework as cubismmodel } from '../../src/model/cubismmodel';
 import CubismModel = cubismmodel.CubismModel;
 import CubismIdHandle = cubismid.CubismIdHandle;
 import ICubismModelSetting = icubismmodelsetting.ICubismModelSetting;

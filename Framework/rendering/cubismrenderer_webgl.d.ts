@@ -4,12 +4,12 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as csmrect } from '../type/csmrectf';
-import { Live2DCubismFramework as cubismrenderer } from './cubismrenderer';
-import { Live2DCubismFramework as cubismmodel } from '../model/cubismmodel';
-import { Live2DCubismFramework as cubsimmatrix44 } from '../math/cubismmatrix44';
-import { Live2DCubismFramework as csmmap } from '../type/csmmap';
-import { Live2DCubismFramework as csmvector } from '../type/csmvector';
+import { Live2DCubismFramework as csmrect } from '../../src/type/csmrectf';
+import { Live2DCubismFramework as cubismrenderer } from '../../src/rendering/cubismrenderer';
+import { Live2DCubismFramework as cubismmodel } from '../../src/model/cubismmodel';
+import { Live2DCubismFramework as cubsimmatrix44 } from '../../src/math/cubismmatrix44';
+import { Live2DCubismFramework as csmmap } from '../../src/type/csmmap';
+import { Live2DCubismFramework as csmvector } from '../../src/type/csmvector';
 import CubismMatrix44 = cubsimmatrix44.CubismMatrix44;
 import csmRect = csmrect.csmRect;
 import csmMap = csmmap.csmMap;

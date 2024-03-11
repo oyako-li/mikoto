@@ -4,9 +4,9 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as cubismmotionqueuemanager } from './cubismmotionqueuemanager';
-import { Live2DCubismFramework as acubismmotion } from './acubismmotion';
-import { Live2DCubismFramework as cubismmodel } from '../model/cubismmodel';
+import { Live2DCubismFramework as cubismmotionqueuemanager } from '../../src/motion/cubismmotionqueuemanager';
+import { Live2DCubismFramework as acubismmotion } from '../../src/motion/acubismmotion';
+import { Live2DCubismFramework as cubismmodel } from '../../src/model/cubismmodel';
 import CubismMotionQueueEntryHandle = cubismmotionqueuemanager.CubismMotionQueueEntryHandle;
 import CubismModel = cubismmodel.CubismModel;
 import ACubismMotion = acubismmotion.ACubismMotion;

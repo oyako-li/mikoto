@@ -4,22 +4,22 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as cubismmotionmanager } from '../motion/cubismmotionmanager';
-import { Live2DCubismFramework as cubismtargetpoint } from '../math/cubismtargetpoint';
-import { Live2DCubismFramework as cubismmodelmatrix } from '../math/cubismmodelmatrix';
-import { Live2DCubismFramework as cubismmoc } from './cubismmoc';
-import { Live2DCubismFramework as cubismmodel } from './cubismmodel';
-import { Live2DCubismFramework as acubismmotion } from '../motion/acubismmotion';
-import { Live2DCubismFramework as cubismmotion } from '../motion/cubismmotion';
-import { Live2DCubismFramework as cubismpose } from '../effect/cubismpose';
-import { Live2DCubismFramework as cubismmodeluserdata } from './cubismmodeluserdata';
-import { Live2DCubismFramework as cubismphysics } from '../physics/cubismphysics';
-import { Live2DCubismFramework as cubismid } from '../id/cubismid';
-import { Live2DCubismFramework as csmstring } from '../type/csmstring';
-import { Live2DCubismFramework as cubismmotionqueuemanager } from '../motion/cubismmotionqueuemanager';
-import { Live2DCubismFramework as cubismbreath } from '../effect/cubismbreath';
-import { Live2DCubismFramework as cubismeyeblink } from '../effect/cubismeyeblink';
-import { Live2DCubismFramework as cubismrenderer_webgl } from '../rendering/cubismrenderer_webgl';
+import { Live2DCubismFramework as cubismmotionmanager } from '../../src/motion/cubismmotionmanager';
+import { Live2DCubismFramework as cubismtargetpoint } from '../../src/math/cubismtargetpoint';
+import { Live2DCubismFramework as cubismmodelmatrix } from '../../src/math/cubismmodelmatrix';
+import { Live2DCubismFramework as cubismmoc } from '../../src/model/cubismmoc';
+import { Live2DCubismFramework as cubismmodel } from '../../src/model/cubismmodel';
+import { Live2DCubismFramework as acubismmotion } from '../../src/motion/acubismmotion';
+import { Live2DCubismFramework as cubismmotion } from '../../src/motion/cubismmotion';
+import { Live2DCubismFramework as cubismpose } from '../../src/effect/cubismpose';
+import { Live2DCubismFramework as cubismmodeluserdata } from '../../src/model/cubismmodeluserdata';
+import { Live2DCubismFramework as cubismphysics } from '../../src/physics/cubismphysics';
+import { Live2DCubismFramework as cubismid } from '../../src/id/cubismid';
+import { Live2DCubismFramework as csmstring } from '../../src/type/csmstring';
+import { Live2DCubismFramework as cubismmotionqueuemanager } from '../../src/motion/cubismmotionqueuemanager';
+import { Live2DCubismFramework as cubismbreath } from '../../src/effect/cubismbreath';
+import { Live2DCubismFramework as cubismeyeblink } from '../../src/effect/cubismeyeblink';
+import { Live2DCubismFramework as cubismrenderer_webgl } from '../../src/rendering/cubismrenderer_webgl';
 import CubismRenderer_WebGL = cubismrenderer_webgl.CubismRenderer_WebGL;
 import CubismEyeBlink = cubismeyeblink.CubismEyeBlink;
 import CubismBreath = cubismbreath.CubismBreath;

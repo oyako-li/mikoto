@@ -1,0 +1,23 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "mikoto1.4.moc3",
+		"Textures": [
+			"mikoto1.4.4096/texture_00.png"
+		],
+		"Physics": "mikoto1.4.physics3.json",
+		"DisplayInfo": "mikoto1.4.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}

@@ -4,11 +4,11 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as acubismmotion } from './acubismmotion';
-import { Live2DCubismFramework as cubismmotionqueueentry } from './cubismmotionqueueentry';
-import { Live2DCubismFramework as csmvector } from '../type/csmvector';
-import { Live2DCubismFramework as cubismmodel } from '../model/cubismmodel';
-import { Live2DCubismFramework as csmstring } from '../type/csmstring';
+import { Live2DCubismFramework as acubismmotion } from '../../src/motion/acubismmotion';
+import { Live2DCubismFramework as cubismmotionqueueentry } from '../../src/motion/cubismmotionqueueentry';
+import { Live2DCubismFramework as csmvector } from '../../src/type/csmvector';
+import { Live2DCubismFramework as cubismmodel } from '../../src/model/cubismmodel';
+import { Live2DCubismFramework as csmstring } from '../../src/type/csmstring';
 import csmString = csmstring.csmString;
 import CubismModel = cubismmodel.CubismModel;
 import csmVector = csmvector.csmVector;

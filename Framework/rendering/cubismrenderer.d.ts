@@ -4,8 +4,8 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as cubismmatrix44 } from '../math/cubismmatrix44';
-import { Live2DCubismFramework as cubismmodel } from '../model/cubismmodel';
+import { Live2DCubismFramework as cubismmatrix44 } from '../../src/math/cubismmatrix44';
+import { Live2DCubismFramework as cubismmodel } from '../../src/model/cubismmodel';
 import CubismModel = cubismmodel.CubismModel;
 import CubismMatrix44 = cubismmatrix44.CubismMatrix44;
 export declare namespace Live2DCubismFramework {

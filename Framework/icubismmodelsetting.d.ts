@@ -4,8 +4,8 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as cubismid } from './id/cubismid';
-import { Live2DCubismFramework as csmmap } from './type/csmmap';
+import { Live2DCubismFramework as cubismid } from '../src/id/cubismid';
+import { Live2DCubismFramework as csmmap } from '../src/type/csmmap';
 import csmMap = csmmap.csmMap;
 import CubismIdHandle = cubismid.CubismIdHandle;
 export declare namespace Live2DCubismFramework {

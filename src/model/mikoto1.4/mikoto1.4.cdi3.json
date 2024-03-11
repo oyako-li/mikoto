@@ -1,0 +1,407 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "角度 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "角度 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "角度 Z"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "",
+			"Name": "角度X90重み"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "",
+			"Name": "角度X-90重み"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "右目　笑顔"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "",
+			"Name": "左眉　上下"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "",
+			"Name": "右眉　上下"
+		},
+		{
+			"Id": "ParamBrowLX",
+			"GroupId": "",
+			"Name": "左眉　左右"
+		},
+		{
+			"Id": "ParamBrowRX",
+			"GroupId": "",
+			"Name": "右眉　左右"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "左眉　角度"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "",
+			"Name": "左眉　変形"
+		},
+		{
+			"Id": "ParamBrowRForm",
+			"GroupId": "",
+			"Name": "右眉　変形"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamCheek",
+			"GroupId": "",
+			"Name": "照れ"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "",
+			"Name": "体の回転　X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "",
+			"Name": "体の回転　Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "",
+			"Name": "体の回転　Z"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		},
+		{
+			"Id": "ParamHairFront",
+			"GroupId": "",
+			"Name": "髪揺れ　前"
+		},
+		{
+			"Id": "ParamHairSide",
+			"GroupId": "",
+			"Name": "髪揺れ　横"
+		},
+		{
+			"Id": "ParamHairBack",
+			"GroupId": "",
+			"Name": "髪揺れ　後"
+		}
+	],
+	"ParameterGroups": [],
+	"Parts": [
+		{
+			"Id": "Part",
+			"Name": "本体"
+		},
+		{
+			"Id": "Part2",
+			"Name": "横髪 のコピー 4"
+		},
+		{
+			"Id": "Part4",
+			"Name": "横髪"
+		},
+		{
+			"Id": "Part8",
+			"Name": "前髪"
+		},
+		{
+			"Id": "Part14",
+			"Name": "顔"
+		},
+		{
+			"Id": "Part43",
+			"Name": "耳 のコピー"
+		},
+		{
+			"Id": "Part44",
+			"Name": "耳"
+		},
+		{
+			"Id": "Part48",
+			"Name": "karada"
+		},
+		{
+			"Id": "Part51",
+			"Name": "karada のコピー 2"
+		},
+		{
+			"Id": "Part53",
+			"Name": "karada のコピー"
+		},
+		{
+			"Id": "Part55",
+			"Name": "服 のコピー 3"
+		},
+		{
+			"Id": "Part56",
+			"Name": "服 のコピー 5"
+		},
+		{
+			"Id": "Part57",
+			"Name": "服 のコピー 6"
+		},
+		{
+			"Id": "Part58",
+			"Name": "後ろ髪"
+		},
+		{
+			"Id": "Part3",
+			"Name": "横髪 のコピー 5"
+		},
+		{
+			"Id": "Part5",
+			"Name": "横髪 のコピー 3"
+		},
+		{
+			"Id": "Part6",
+			"Name": "横髪 のコピー"
+		},
+		{
+			"Id": "Part7",
+			"Name": "横髪 のコピー 2"
+		},
+		{
+			"Id": "Part9",
+			"Name": "フォルダー 9"
+		},
+		{
+			"Id": "Part10",
+			"Name": "フォルダー 10"
+		},
+		{
+			"Id": "Part11",
+			"Name": "フォルダー 11"
+		},
+		{
+			"Id": "Part12",
+			"Name": "横髪＿影"
+		},
+		{
+			"Id": "Part13",
+			"Name": "横髪＿影 のコピー"
+		},
+		{
+			"Id": "Part15",
+			"Name": "右目 のコピー 3"
+		},
+		{
+			"Id": "Part22",
+			"Name": "右目"
+		},
+		{
+			"Id": "Part29",
+			"Name": "鼻"
+		},
+		{
+			"Id": "Part30",
+			"Name": "口"
+		},
+		{
+			"Id": "Part33",
+			"Name": "肌"
+		},
+		{
+			"Id": "Part49",
+			"Name": "頭＿影"
+		},
+		{
+			"Id": "Part50",
+			"Name": "体＿影"
+		},
+		{
+			"Id": "Part52",
+			"Name": "体＿影 のコピー 2"
+		},
+		{
+			"Id": "Part54",
+			"Name": "体＿影 のコピー"
+		},
+		{
+			"Id": "Part63",
+			"Name": "フォルダー 7"
+		},
+		{
+			"Id": "Part64",
+			"Name": "フォルダー 8"
+		},
+		{
+			"Id": "Part59",
+			"Name": "フォルダー 5 のコピー 2"
+		},
+		{
+			"Id": "Part61",
+			"Name": "フォルダー 5"
+		},
+		{
+			"Id": "Part16",
+			"Name": "瞼 のコピー 3"
+		},
+		{
+			"Id": "Part17",
+			"Name": "右上まつ毛 のコピー 3"
+		},
+		{
+			"Id": "Part18",
+			"Name": "下まつげ のコピー 3"
+		},
+		{
+			"Id": "Part19",
+			"Name": "横まつ毛 のコピー 3"
+		},
+		{
+			"Id": "Part20",
+			"Name": "瞳 のコピー 3"
+		},
+		{
+			"Id": "Part21",
+			"Name": "白目 のコピー 3"
+		},
+		{
+			"Id": "Part23",
+			"Name": "瞼"
+		},
+		{
+			"Id": "Part24",
+			"Name": "右上まつ毛"
+		},
+		{
+			"Id": "Part25",
+			"Name": "下まつげ"
+		},
+		{
+			"Id": "Part26",
+			"Name": "横まつ毛"
+		},
+		{
+			"Id": "Part27",
+			"Name": "瞳"
+		},
+		{
+			"Id": "Part28",
+			"Name": "白目"
+		},
+		{
+			"Id": "Part31",
+			"Name": "上唇"
+		},
+		{
+			"Id": "Part32",
+			"Name": "口内"
+		},
+		{
+			"Id": "Part45",
+			"Name": "服"
+		},
+		{
+			"Id": "Part46",
+			"Name": "服 のコピー 4"
+		},
+		{
+			"Id": "Part47",
+			"Name": "服 のコピー 2"
+		},
+		{
+			"Id": "Part36",
+			"Name": "肌＿影"
+		},
+		{
+			"Id": "Part34",
+			"Name": "フォルダー 1"
+		},
+		{
+			"Id": "Part35",
+			"Name": "フォルダー 2"
+		},
+		{
+			"Id": "Part41",
+			"Name": "フォルダー 4 のコピー"
+		},
+		{
+			"Id": "Part42",
+			"Name": "フォルダー 4"
+		},
+		{
+			"Id": "Part37",
+			"Name": "横髪＿影 のコピー 2"
+		},
+		{
+			"Id": "Part38",
+			"Name": "横髪＿影"
+		},
+		{
+			"Id": "Part39",
+			"Name": "前髪＿影"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"ParamAngleY",
+			"ParamAngleZ"
+		],
+		[
+			"ParamMouthForm",
+			"ParamMouthOpenY"
+		]
+	]
+}

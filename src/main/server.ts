@@ -1,16 +1,8 @@
 import express from 'express';
-import { createEngine } from './createEngine';
 import cookieParser from 'cookie-parser';
-import createError from 'http-errors';
 import path from 'path';
 
 const router = express();
-// const isTsNodeDev = Object.keys(require.cache).some(path => path.includes('/ts-node-dev/'));
-// const ext = isTsNodeDev ? 'tsx' : 'js';
-// console.log(__dirname);
-// router.set('views', path.join(__dirname, '../src/renderer'));
-// router.set('view engine', ext);
-// router.engine(ext, createEngine());
 router.use(express.json());
 router.use(cookieParser());
 router.use(express.static(path.join(__dirname)));

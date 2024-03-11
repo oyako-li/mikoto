@@ -4,7 +4,7 @@
  * Use of this source code is governed by the Live2D Open Software license
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
-import { Live2DCubismFramework as csmstring } from '../type/csmstring';
+import { Live2DCubismFramework as csmstring } from '../../src/type/csmstring';
 import csmString = csmstring.csmString;
 export declare namespace Live2DCubismFramework {
     /**
