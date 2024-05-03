@@ -1,5 +1,5 @@
 interface Window extends Window {
-  micotoApi?: {
+  mikotoApi?: {
     get(data?: string): Promise<any>;
     post(data: string): Promise<any>;
     voice(data: any): Promise<any>;

@@ -2,7 +2,7 @@ import { build } from "electron-builder";
 
 build({
   config: {
-    productName: "micoto",
+    productName: "mikoto",
     artifactName: "${productName}-${version}-${platform}-${arch}.${ext}",
     files: ["dist/**/*", "dist/*"],
     directories: {
@@ -21,7 +21,7 @@ build({
     mac: {
       identity: null,
       target: ["default"],
-      icon: "assets/mikoto.png",
+      icon: "assets/mikoto.ico",
     },
     linux: {
       target: ["AppImage"],

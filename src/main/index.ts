@@ -10,7 +10,18 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import path from "path";
 import glob from "glob";
 import router from "./server";
-const PORT = 3000;
+import { myLog } from "./logger";
+import dotenv from "dotenv";
+
+dotenv.config();
+const HOSTNAME = process.env.HOSTNAME;
+const DEBUG = process.env.DEBUG === "true";
+const PORT = process.env.PORT;
+
+if (!DEBUG) {
+  console.log = console.info = console.warn = console.error = myLog();
+}
+
 let win: BrowserWindow | null = null;
 function createWindow() {
   router.get("/", async (req, res) => {
@@ -19,7 +30,7 @@ function createWindow() {
 
   router.get("/list/", async (req, res) => {
     const files = await glob(`${app.getPath("userData")}/log/*/*.log`);
-    console.log(files);
+    console.log(`${app.getPath("userData")}/log/*/*.log`);
     return res.json({ files: files });
   });
 
@@ -34,6 +45,8 @@ function createWindow() {
       }
     });
   });
+
+  router.get("/pose/", async (req, res) => {});
 
   router.listen(Number(PORT), "127.0.0.1", () => {
     console.log(`Listening on port ${PORT}`);
@@ -58,7 +71,7 @@ function createWindow() {
     });
   });
 }
-app.commandLine.appendSwitch("enable-features", "WebSpeechAPI");
+
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
@@ -94,15 +107,14 @@ ipcMain.handle("command", async (event, data) => {
 });
 
 ipcMain.handle("stream", async (event, data) => {
-  // return ipcMain.emit("embody", data);
   return win.webContents.send("embody", data);
 });
 
 ipcMain.handle("voice", async (event, data) => {
   let newData = data.split(";");
+  console.log(newData[0]);
   newData[0] = "data:audio/ogg;";
   newData = newData[0] + newData[1];
-  // return ipcMain.emit("speak", newData);
   return win.webContents.send("speak", newData);
 });
 

@@ -7,7 +7,7 @@ contextBridge.exposeInMainWorld("versions", {
   ping: () => ipcRenderer.invoke("ping"),
 });
 
-contextBridge.exposeInMainWorld("micotoApi", {
+contextBridge.exposeInMainWorld("mikotoApi", {
   get: async (data?: any) => ipcRenderer.invoke("get", data),
   post: async (data: any) => ipcRenderer.invoke("post", data),
   command: async (data: any) => ipcRenderer.invoke("command", data),

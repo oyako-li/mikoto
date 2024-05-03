@@ -14,25 +14,47 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "paths": {
-      "*": ["node_modules/*", "./src/types/*"],
-      "@assets/*": ["assets/*"],
-      "@main/*": ["src/main/*"],
-      "@renderer/*": ["src/renderer/*"],
-      "@models/*": ["src/models/*"],
-      "@type/*": ["src/types*"],
-      "@src/*": ["src/*"],
-      "@framework/*": ["Framework/*"]
+      "*": [
+        "node_modules/*",
+        "./src/types/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@main/*": [
+        "src/main/*"
+      ],
+      "@renderer/*": [
+        "src/renderer/*"
+      ],
+      "@models/*": [
+        "src/models/*"
+      ],
+      "@type/*": [
+        "src/types*"
+      ],
+      "@core/*": [
+        "src/core/src/*"
+      ],
+      "@src/*": [
+        "src/*"
+      ],
+      "@framework/*": [
+        "Framework/*"
+      ],
     }
   },
   "ts-node": {
     "compilerOptions": {
       "target": "es2021",
       "module": "CommonJS",
-  }},
+    }
+  },
   "include": [
     "src/**/*.ts",
-    "Core/*.ts", 
-    "src/**/*.tsx" 
+    "Core/*.ts",
+    "src/**/*.tsx",
+    "src/core/test/.test.ts"
   ],
   "exclude": [
     "node_modules",

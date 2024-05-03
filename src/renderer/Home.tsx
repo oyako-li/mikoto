@@ -22,14 +22,22 @@ const MODEL_FILES = {
 export const Home = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const videoRef = useRef<HTMLCanvasElement>(null);
-  const textRef = useRef<HTMLTextAreaElement>(null);
+  const camerasRef = useRef<HTMLDivElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(()=>{
-    load();
+    setIsLoaded(true);
   },[]);
+
+  useEffect(()=>{
+    if (isLoaded){
+      load();
+    }
+  }, [isLoaded]);
 
   async function load() {
     try {
+
       const [model, moc3, physics, ...textures] = await Promise.all([
         axios.get<ArrayBuffer>(MODEL_FILES.model3, { responseType: 'arraybuffer' }).then(res => res.data),
         axios.get(MODEL_FILES.moc3, { responseType: 'arraybuffer' }).then(res => res.data),
@@ -50,35 +58,35 @@ export const Home = () => {
       });
       let point = new FacePoint();
 
-      // navigator.mediaDevices.enumerateDevices().then(devices=>{
-      //   devices.forEach(function(device) {
-      //     if (device.kind == "videoinput") {  
-      //       navigator.mediaDevices.getUserMedia({video: {deviceId:{exact: device.deviceId}}}).then(stream=>{
-      //         const camera = document.createElement("video");
-      //         const eyes = document.createElement('canvas');
-      //         const ctx = eyes.getContext('2d');
-      //         camera.srcObject = stream;
-      //         camera.play();
-      //         eyes.width= camera.videoWidth;
-      //         eyes.height= camera.videoHeight;
-      //         document.body.appendChild(eyes);
-      //         function tick() {
-      //           if (camera.readyState===camera.HAVE_ENOUGH_DATA) {
-      //             ctx.drawImage(camera, 0, 0, videoRef.current.width, videoRef.current.height);
-      //             const imageData = ctx.getImageData(0,0, camera.videoWidth, camera.videoHeight)
-      //             // sharp(imageData);
-      //             // window.micotoApi.stream(videoRef.current.toDataURL('image/jpeg'));
-      //             console.log(imageData);
-      //           }
-      //           requestAnimationFrame(tick);
-      //         }
-      //         tick();
-      //       })
-      //     } else if (device.kind=="audioinput") {
-            
-      //     }
-      //   });
-      // });
+      navigator.mediaDevices.enumerateDevices().then(devices=>{
+        console.log(devices)
+        devices.forEach(function(device) {
+          if (device.kind == "videoinput") {  
+            navigator.mediaDevices.getUserMedia({video: {deviceId:{exact: device.deviceId}}}).then(stream=>{
+              const camera = document.createElement("video");
+              const eyes = document.createElement('canvas');
+              const ctx = eyes.getContext('2d');
+              camera.srcObject = stream;
+              camera.play();
+              eyes.width= camera.videoWidth;
+              eyes.height= camera.videoHeight;
+              camerasRef.current.appendChild(camera);
+              function tick() {
+                if (camera.readyState===camera.HAVE_ENOUGH_DATA) {
+                  ctx.drawImage(camera, 0, 0, videoRef.current.width, videoRef.current.height);
+                  const imageData = ctx.getImageData(0,0, camera.videoWidth, camera.videoHeight)
+                  // window.mikotoApi.stream(videoRef.current.toDataURL('image/jpeg'));
+                  // console.log(imageData);
+                }
+                requestAnimationFrame(tick);
+              }
+              tick();
+            })
+          } else if (device.kind=="audioinput") {
+            console.log("load audio")
+          }
+        });
+      });
 
 
 
@@ -102,43 +110,43 @@ export const Home = () => {
       //   })
       //   updatePoint(point)
       // }
-      const _handleOnMouseMove = (e: MouseEvent) => {
-        const x = e.clientX
-        const y = e.clientY
-        const rect = canvasRef.current.getBoundingClientRect()
-        const cx = rect.left + rect.width / 2
-        const cy = rect.top + rect.height / 2
-        const distance = getDistance(x, y, cx, cy)
-        const dx = cx - x
-        const dy = cy - y
-        const angle = getAngle(x, y, cx, cy)
-        const r = Math.cos(angle) * Math.sin(angle) * 180 / Math.PI
-        Object.assign(point, {
-          angleX: -dx / 10,
-          angleY: dy / 10,
-          angleZ: r * (distance / cx),
-          angleEyeX: -dx / cx,
-          angleEyeY: dy / cy,
-        })
-        updatePoint(point)
-      }
+      // const _handleOnMouseMove = (e: MouseEvent) => {
+      //   const x = e.clientX
+      //   const y = e.clientY
+      //   const rect = canvasRef.current.getBoundingClientRect()
+      //   const cx = rect.left + rect.width / 2
+      //   const cy = rect.top + rect.height / 2
+      //   const distance = getDistance(x, y, cx, cy)
+      //   const dx = cx - x
+      //   const dy = cy - y
+      //   const angle = getAngle(x, y, cx, cy)
+      //   const r = Math.cos(angle) * Math.sin(angle) * 180 / Math.PI
+      //   Object.assign(point, {
+      //     angleX: -dx / 10,
+      //     angleY: dy / 10,
+      //     angleZ: r * (distance / cx),
+      //     angleEyeX: -dx / cx,
+      //     angleEyeY: dy / cy,
+      //   })
+      //   updatePoint(point)
+      // }
 
-      const _handleOnMouseClick = async (e: MouseEvent) => {
-        clickedHandler();
-      }
+      // const _handleOnMouseClick = async (e: MouseEvent) => {
+      //   clickedHandler();
+      // }
       
       // async function tick() {
       //   if (camera1.readyState === camera1.HAVE_ENOUGH_DATA) {
       //     videoRef.current.height = camera1.videoHeight;
       //     videoRef.current.width = camera1.videoWidth;
       //     context.drawImage(camera1, 0, 0, videoRef.current.width, videoRef.current.height);
-      //     window.micotoApi.stream(videoRef.current.toDataURL('image/jpeg'));
+      //     window.mikotoApi.stream(videoRef.current.toDataURL('image/jpeg'));
       //   }
       //   requestAnimationFrame(tick);
       // }
 
-      document.body.addEventListener('mousemove', _handleOnMouseMove, false);
-      document.body.addEventListener('click', _handleOnMouseClick, false);
+      // document.body.addEventListener('mousemove', _handleOnMouseMove, false);
+      // document.body.addEventListener('click', _handleOnMouseClick, false);
     } catch(error: any) {
       alert(error);
       console.error(error);
@@ -150,11 +158,12 @@ export const Home = () => {
     <>
       <canvas ref={canvasRef} className='canvas'></canvas>
       <canvas ref={videoRef}></canvas>
-      <textarea ref={textRef}></textarea>
+      <div ref={camerasRef}></div>
+      {/* <textarea ref={textRef}></textarea>
       <div style={{border:"dotted", padding:"10px",backgroundColor:"white"}}>
           <span id="final_span"></span>
           <span id="interim_span" style={{color:"grey"}}></span>
-      </div>
+      </div> */}
     </>
   )
 }
