@@ -12,6 +12,8 @@ import glob from "glob";
 import router from "./server";
 import { myLog } from "./logger";
 import dotenv from "dotenv";
+import multer from "multer";
+import axios from "axios";
 
 dotenv.config();
 const HOSTNAME = process.env.HOSTNAME;
@@ -20,6 +22,36 @@ const PORT = process.env.PORT;
 
 if (!DEBUG) {
   console.log = console.info = console.warn = console.error = myLog();
+}
+
+// multerを使用してファイルアップロードの設定を行います
+const storage = multer.memoryStorage(); // ファイルをメモリに保存
+const upload = multer({ storage: storage });
+
+async function fetchAudio(text: string) {
+  try {
+    // AxiosでHTTPリクエストを行い、レスポンスタイプを'arraybuffer'に設定
+    const response = await axios.get(
+      `http://localhost:5001/tts?text=${encodeURIComponent(text)}`,
+      {
+        responseType: "arraybuffer",
+      }
+    );
+
+    if (response.status === 200) {
+      // レスポンスデータをバッファとして取得し、Base64エンコード
+      const base64Audio = Buffer.from(response.data, "binary").toString(
+        "base64"
+      );
+      return base64Audio;
+    } else {
+      console.error("Failed to fetch audio:", response.status);
+      throw response.status;
+    }
+  } catch (error) {
+    console.error("Error fetching audio:", error);
+    throw error;
+  }
 }
 
 let win: BrowserWindow | null = null;
@@ -46,7 +78,25 @@ function createWindow() {
     });
   });
 
-  router.get("/pose/", async (req, res) => {});
+  router.post("/tts/", async (req: any, res) => {
+    if (!req.body.text) return res.status(400).send("no text");
+    const text = req.body.text;
+    const base64Audio = await fetchAudio(text);
+    console.log(text);
+    // ElectronのRendererプロセスに送信
+    win.webContents.send("speak", base64Audio);
+    return res.send(text);
+  });
+
+  router.post("/speak/", upload.single("audioFile"), async (req: any, res) => {
+    if (!req.file) {
+      return res.status(400).send("No file uploaded.");
+    }
+    // バイナリデータをBase64文字列に変換
+    const base64Audio = req.file.buffer.toString("base64");
+    win.webContents.send("speak", base64Audio);
+    return res.send("Audio data sent to renderer.");
+  });
 
   router.listen(Number(PORT), "127.0.0.1", () => {
     console.log(`Listening on port ${PORT}`);
@@ -60,7 +110,6 @@ function createWindow() {
       webPreferences: {
         nodeIntegration: true,
         contextIsolation: true,
-        enableBlinkFeatures: "WebSpeech",
         preload: path.join(__dirname, "preload.js"),
       },
     });
@@ -91,6 +140,7 @@ ipcMain.handle("post", (event, data) => {
 });
 
 ipcMain.handle("get", async (event, data) => {
+  console.log(data);
   return;
 });
 

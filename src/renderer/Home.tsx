@@ -28,16 +28,16 @@ export const Home = () => {
   useEffect(()=>{
     setIsLoaded(true);
   },[]);
-
+  
   useEffect(()=>{
     if (isLoaded){
       load();
     }
   }, [isLoaded]);
-
+  
   async function load() {
     try {
-
+      
       const [model, moc3, physics, ...textures] = await Promise.all([
         axios.get<ArrayBuffer>(MODEL_FILES.model3, { responseType: 'arraybuffer' }).then(res => res.data),
         axios.get(MODEL_FILES.moc3, { responseType: 'arraybuffer' }).then(res => res.data),
@@ -57,7 +57,7 @@ export const Home = () => {
         scale: 2.2
       });
       let point = new FacePoint();
-
+      
       navigator.mediaDevices.enumerateDevices().then(devices=>{
         console.log(devices)
         devices.forEach(function(device) {
@@ -87,13 +87,12 @@ export const Home = () => {
           }
         });
       });
-
-
-
+      
+      
       // const _handleOnMouseMove = (e: MouseEvent) => {
-      //   const x = e.clientX
-      //   const y = e.clientY
-      //   const rect = canvasRef.current.getBoundingClientRect()
+        //   const x = e.clientX
+        //   const y = e.clientY
+        //   const rect = canvasRef.current.getBoundingClientRect()
       //   const cx = rect.left + rect.width / 2
       //   const cy = rect.top + rect.height / 2
       //   const distance = getDistance(x, y, cx, cy)
@@ -131,9 +130,10 @@ export const Home = () => {
       //   updatePoint(point)
       // }
 
-      // const _handleOnMouseClick = async (e: MouseEvent) => {
-      //   clickedHandler();
-      // }
+      const _handleOnMouseClick = async (e: MouseEvent) => {
+        // clickedHandler();
+        await window.mikotoApi.get("get you");
+      }
       
       // async function tick() {
       //   if (camera1.readyState === camera1.HAVE_ENOUGH_DATA) {
@@ -146,12 +146,21 @@ export const Home = () => {
       // }
 
       // document.body.addEventListener('mousemove', _handleOnMouseMove, false);
-      // document.body.addEventListener('click', _handleOnMouseClick, false);
+      document.body.addEventListener('click', _handleOnMouseClick, false);
     } catch(error: any) {
       alert(error);
       console.error(error);
     }
   };
+
+  window.mikotoApi.speak((_event: any, base64Audio: string) => {
+    console.log("Received audio data");
+    const audioSrc = `data:audio/wav;base64,${base64Audio}`;
+    const audio = new Audio(audioSrc);
+    audio.play();
+    return "success!"
+  });
+  
 
 
   return (

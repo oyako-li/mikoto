@@ -13,6 +13,6 @@ contextBridge.exposeInMainWorld("mikotoApi", {
   command: async (data: any) => ipcRenderer.invoke("command", data),
   stream: (data: any) => ipcRenderer.invoke("stream", data),
   voice: (data: any) => ipcRenderer.invoke("voice", data),
-  embody: (callback: any) => ipcRenderer.on("price", callback),
-  speak: (callback: any) => ipcRenderer.on("voice", callback),
+  embody: (callback: any) => ipcRenderer.on("embody", callback),
+  speak: (callback: any) => ipcRenderer.on("speak", callback),
 });
