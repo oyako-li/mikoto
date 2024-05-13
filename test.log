@@ -1,0 +1,2058 @@
+
+> mikoto@1.0.0 main
+> ts-node ./src/main/consciousness.ts
+
+0
+oblivion: 1
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.9602999999999999,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.9602999999999999,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.9602999999999999,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.9602999999999999,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.9506969999999999,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.9506969999999999,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.94119003,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.94119003,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: 0.94119003,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 2
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.9221760899999999,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.9221760899999999,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.9221760899999999,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.9221760899999999,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.9038247858089998,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.9038247858089998,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.8947865379509099,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.8947865379509099,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 3
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.8855656992269998,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.8855656992269998,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.8855656992269998,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.8855656992269998,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.8592635123942587,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.8592635123942587,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.8506708772703161,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.8506708772703161,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 4
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.8504087409676879,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.8504087409676879,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.8504087409676879,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.8504087409676879,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.8168992434426845,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.8168992434426845,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.8087302510082576,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.8087302510082576,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 5
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.8166475139512707,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.8166475139512707,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.8166475139512707,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.8166475139512707,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.7766236600432298,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.7766236600432298,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.7688574234427974,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.7688574234427974,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 6
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.7842266076474051,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.7842266076474051,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.7842266076474051,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.7842266076474051,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.7383337837321184,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.7383337837321184,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.7309504458947972,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.7309504458947972,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 7
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.7530928113238031,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.7530928113238031,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.7530928113238031,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.7530928113238031,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.7019317131927738,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.7019317131927738,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.694912396060846,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.694912396060846,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 8
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.7231950267142481,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.7231950267142481,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.7231950267142481,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.7231950267142481,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.6673243739372305,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.6673243739372305,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.6606511301978581,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.6606511301978581,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 9
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.6944841841536924,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.6944841841536924,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.6944841841536924,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.6944841841536924,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.6344232803290033,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.6344232803290033,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.6280790475257132,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.6280790475257132,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 10
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.6669131620427908,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.6669131620427908,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.6669131620427908,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.6669131620427908,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.6031443093389425,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.6031443093389425,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.597112866245553,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.597112866245553,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 11
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.640436709509692,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.640436709509692,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.640436709509692,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.640436709509692,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.5734074854556046,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.5734074854556046,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5852303202072665,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5852303202072665,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 12
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.6150113721421572,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.6150113721421572,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.6150113721421572,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.6150113721421572,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.5619966764950381,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.5619966764950381,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5735842368351419,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5735842368351419,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 13
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.5905954206681134,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.5905954206681134,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.5905954206681134,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.5905954206681134,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.5508129426327869,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.5508129426327869,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5621699105221226,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5621699105221226,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 14
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.5846894664614323,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.5846894664614323,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.5846894664614323,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.5846894664614323,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.5398517650743945,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.5398517650743945,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5509827293027324,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5509827293027324,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 15
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.578842571796818,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.578842571796818,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.578842571796818,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.578842571796818,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.529108714949414,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.529108714949414,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5400181729896081,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5400181729896081,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 16
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.5730541460788497,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.5730541460788497,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.5730541460788497,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.5730541460788497,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.5185794515219208,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.5185794515219208,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5292718113471149,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5292718113471149,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 17
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.5673236046180612,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.5673236046180612,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.5673236046180612,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.5673236046180612,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.5082597204366346,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.5082597204366346,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5187393023013074,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5187393023013074,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+0
+oblivion: 18
+Swarm(10) [Set] {
+  Neuron {
+    _qualia: Qualia { fragment: 'i' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '081fa895-40e5-4ac7-a302-affdb1861613'
+    },
+    resource: 0.5616503685718806,
+    id: '2760a6be-9573-4a85-96c0-49834f602bcf'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 6 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '4cdb3e85-6b1b-4947-936e-24cfeec0d995'
+    },
+    resource: NaN,
+    id: 'a8cf9733-b893-41b8-bd30-b601b09a1ca8'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'b' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'c44a1602-f4e6-4261-8c45-d9f64acbbe88'
+    },
+    resource: 0.5616503685718806,
+    id: 'a85e29d9-b495-489e-81a3-a5e61becd963'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'g' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'fa9ad103-866f-4c50-9c98-d8ce3eb56be5'
+    },
+    resource: 0.5616503685718806,
+    id: '406d7f03-158c-4173-be9d-a10a0eec3440'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 'c' },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '07319b3f-e006-40db-8fb9-46f8b5e48b5a'
+    },
+    resource: 0.5616503685718806,
+    id: 'f0b19827-5a3a-4bd3-97de-909648727848'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 8 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bc9b51ef-93ed-4b94-8f1d-fac9b5e9c63d'
+    },
+    resource: 0.4981453519999456,
+    id: '43aba56c-70fb-4d33-b3cb-b962690f948e'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '57ebaf0d-86c3-4bc1-b3f4-3af3d0a68613'
+    },
+    resource: 0.4981453519999456,
+    id: '1a0efd03-1758-479e-81e0-20ef6ad37103'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 2 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'cb1cab32-8c2b-45e7-93ce-6ae878c1c9be'
+    },
+    resource: 0.5084163901855113,
+    id: 'baada3b2-bc12-4261-ae09-a00e6fae1fb7'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: 'bbec21f3-40b4-46d8-903e-d5f182ff1707'
+    },
+    resource: 0.5084163901855113,
+    id: '3ae073c9-1767-42aa-a2ad-cd2d35466468'
+  },
+  Neuron {
+    _qualia: Qualia { fragment: 3 },
+    dendrites: Dendrite {
+      to: [Swarm [Set]],
+      registers: [Array],
+      program: [Program],
+      id: '60962b38-1ce1-4b3e-9989-48088dd7036e'
+    },
+    resource: NaN,
+    id: '2fa27fbd-9e96-4188-bf38-c36296e165a6'
+  }
+}
+^C come here
+Swarm(0) [Set] {}

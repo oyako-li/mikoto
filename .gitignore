@@ -1,6 +1,7 @@
 .gstr
 node_modules
 dist
-.log/
+log/*
 release
 .env
+!.gitkeep

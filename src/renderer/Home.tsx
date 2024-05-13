@@ -75,7 +75,7 @@ export const Home = () => {
                 if (camera.readyState===camera.HAVE_ENOUGH_DATA) {
                   ctx.drawImage(camera, 0, 0, videoRef.current.width, videoRef.current.height);
                   const imageData = ctx.getImageData(0,0, camera.videoWidth, camera.videoHeight)
-                  // window.mikotoApi.stream(videoRef.current.toDataURL('image/jpeg'));
+                  window.mikotoApi.stream(videoRef.current.toDataURL('image/jpeg'));
                   // console.log(imageData);
                 }
                 requestAnimationFrame(tick);
