@@ -39,25 +39,24 @@ async function think(state: Array<number>) {
           }, int)
           .then((result) => {
             console.log("Completed:", result);
-            intention.resource *= 1.07;
+            intention.reward = 1.07;
           })
           .catch((error) => {
-            console.warn(con);
             console.error(error);
-            intention.resource *= 100 / int;
+            intention.reward = 100 / int;
           });
       }
     } else {
-      intention.resource *= 0.5;
+      intention.reward = 0.5;
     }
   } catch (e) {
-    intention.resource *= 0.3;
+    intention.reward = 0.3;
   }
 }
 
-if (!DEBUG) {
-  console.log = console.info = console.warn = console.error = myLog();
-}
+// if (!DEBUG) {
+//   console.log = console.info = console.warn = console.error = myLog();
+// }
 /**
  * 美しい言葉を生み出すかどうかの実験
  * 新規性がないと飢える？
