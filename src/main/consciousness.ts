@@ -65,6 +65,7 @@ async function think(state: Array<number>) {
  * それまでは、命と蛍で切磋琢磨して。。。
  * このとき、命と蛍でのコミュニケーションは音声と視覚探索によってのみ行われる
  * keyboard robot
+ * ここにおいて、意欲・貪欲さはどのように表されるのだろうか？
  */
 if (require.main === module) {
   console.log("start", new Date());
